@@ -9,6 +9,7 @@
   <div class="navbar">
     <a href="index.php?action=home" class="logo"><img src="/img/logo.png" width="120px"></a>
 
+    
     <div class="menu">
         <a href="index.php?action=inicioSesion">Iniciar Sesion</a>
         <a href="index.php?action=registroUsuario">Registrarse</a>
