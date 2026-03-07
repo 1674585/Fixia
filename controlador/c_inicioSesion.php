@@ -1,14 +1,10 @@
 <?php
 // controlador/c_inicioSesion.php
 
-// Solo arrancamos sesión si todavía no se ha iniciado (la abre index.php
-// la mayoría de las veces).
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Si has renombrado el fichero a m_inicioSesion.php, deja esta línea.
-// Si sigues con el nombre antiguo pon m__inicioSesion.php.
 require_once __DIR__ . '/../modelo/m_inicioSesion.php';
 require_once __DIR__ . '/../modelo/m_conecta.php';
 
@@ -24,12 +20,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($usuario) {
         if (password_verify($passInput, $usuario['password_hash'])) {
             
-            $_SESSION['user_id']   = $usuario['id'];
-            $_SESSION['nombre']    = $usuario['nombre_completo'];
-            $_SESSION['rol']       = $usuario['rol'];
+            $_SESSION['user_id'] = $usuario['id'];
+            $_SESSION['nombre'] = $usuario['nombre_completo'];
+            $_SESSION['rol'] = $usuario['rol'];
             $_SESSION['taller_id'] = $usuario['taller_id'];
 
-            header("Location: /index.php?action=home");
+            // Redireccionar según el rol
+            switch ($_SESSION['rol']) {
+                case 'cliente':
+                    header("Location: /Fixia/index.php?action=misVehiculos");
+                    exit;
+                case 'jefe':
+                    header("Location: /Fixia/index.php?action=ordenesTrabajoJefe");
+                    exit;
+                case 'recepcionista':
+                    header("Location: /Fixia/index.php?action=registrarVehiculo");
+                    exit;
+                case 'mecanico':
+                    header("Location: /Fixia/index.php?action=misTareas");
+                    exit;
+                case 'ceo':
+                    header("Location: /Fixia/index.php?action=dashboard");
+                    exit;
+                default:
+                    header("Location: /Fixia/index.php?action=home");
+                    exit;
+            }
 
             exit;
         } else {

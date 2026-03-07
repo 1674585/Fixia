@@ -16,19 +16,19 @@
             require __DIR__ . '/recurso/r_registroUsuario.php';
             break;
 
-        case 'tareasPendientes':
-            if (!isset($_SESSION['rol'])) {
-                header("Location: index.php?action=inicioSesion");
-                exit;
-            }
-
-            require __DIR__ . '/recurso/r_tareasPendientes.php';
-            break;
-
         case 'cerrarSesion':
             session_destroy();
             header("Location: index.php?action=home");
             break;
+
+        case 'misVehiculos':
+            require __DIR__ . '/recurso/r_misVehiculos.php';
+            break;
+
+        case 'detallesVehiculo':
+            require __DIR__ . '/recurso/r_detallesVehiculo.php';
+            break;
+
 
         default:
             echo "Acción no válida.";
