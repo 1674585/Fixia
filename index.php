@@ -28,7 +28,30 @@
         case 'detallesVehiculo':
             require __DIR__ . '/recurso/r_detallesVehiculo.php';
             break;
+        
+        case 'registrarVehiculo':
+            require __DIR__ . '/recurso/r_registrarVehiculo.php';
+            break;
 
+        case 'buscarClientes':
+            require __DIR__ . '/controlador/c_buscarClientes.php';
+            break;
+
+        case 'obtenerModelos':
+            require __DIR__ . '/controlador/c_obtenerModelosPorMarca.php';
+            break;
+
+        case 'crearOrden':
+            require __DIR__ . '/recurso/r_crearOrden.php';
+            break;
+
+        case 'obtenerSubgrupos':
+            require __DIR__ . '/controlador/c_obtenerSubgrupos.php';
+            break;
+        
+        case 'detallesOrden':
+            require __DIR__ . '/recurso/r_detallesOrden.php';
+            break;  
 
         default:
             echo "Acción no válida.";

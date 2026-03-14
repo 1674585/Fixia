@@ -33,27 +33,30 @@
                 case 'jefe':
                     echo '<a href="index.php?action=ordenesTrabajo">Órdenes de Trabajo</a>';
                     echo '<a href="index.php?action=reportes">Reportes</a>';
-                    echo '<a href="index.php?action=tareasPendientes">Tareas</a>';
-                    echo '<a href="index.php?action=usuarios">Usuarios</a>';
+                    echo '<a href="index.php?action=misTareas">Mis Tareas</a>';
+                    echo '<a href="index.php?action=usuarios">Gestionar Usuarios</a>';
+                    echo '<a href="index.php?action=registrarVehiculo">Registrar Vehículo</a>';
+                    echo '<a href="index.php?action=crearOrden">Crear Orden</a>';
                     break;
                 
                 case 'recepcionista':
-                    echo '<a href="index.php?action=registroVehiculo">Registrar Vehículo</a>';
+                    echo '<a href="index.php?action=registrarVehiculo">Registrar Vehículo</a>';
                     echo '<a href="index.php?action=stock">Stock</a>';
                     echo '<a href="index.php?action=facturacion">Facturación</a>';
+                    echo '<a href="index.php?action=crearOrden">Crear Orden</a>';
                     break;
                 
                 case 'mecanico':
-                    echo '<a href="index.php?action=registroVehiculo">Registrar Vehículo</a>';
+                    echo '<a href="index.php?action=registrarVehiculo">Registrar Vehículo</a>';
                     echo '<a href="index.php?action=stock">Stock</a>';
                     echo '<a href="index.php?action=facturacion">Facturación</a>';
+                    echo '<a href="index.php?action=crearOrden">Crear Orden</a>';
                     echo '<a href="index.php?action=misTareas">Mis Tareas</a>';
-
                     break;
                 
                 case 'cliente':
                     echo '<a href="index.php?action=misVehiculos">Mis Vehículos</a>';
-                    echo '<a href="index.php?action=aprobarPresupuesto">Aprobar Presupuesto</a>';
+                    echo '<a href="index.php?action=aprobarPresupuesto">Aprobar Presupuestos</a>';
                     break;
             }
             

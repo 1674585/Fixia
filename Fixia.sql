@@ -64,8 +64,9 @@ CREATE TABLE ordenes_trabajo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     taller_id INT NOT NULL,
     vehiculo_id INT NOT NULL,
-    creado_por_id INT NOT NULL,    -- Recepcionista
-    supervisor_id INT,             -- Jefe que asigna
+    creado_por_id INT NOT NULL,          -- Recepcionista
+    supervisor_id INT,                   -- Jefe que asigna
+    asignado_a_id INT,                   -- Mecánico principal de la orden
     estado ENUM('recibido', 'diagnosticando', 'presupuestado', 'en_reparacion', 'listo', 'facturado') DEFAULT 'recibido',
     sintomas_cliente TEXT,
     diagnostico_tecnico TEXT,
@@ -75,7 +76,8 @@ CREATE TABLE ordenes_trabajo (
     FOREIGN KEY (taller_id) REFERENCES talleres(id),
     FOREIGN KEY (vehiculo_id) REFERENCES vehiculos(id),
     FOREIGN KEY (creado_por_id) REFERENCES usuarios(id),
-    FOREIGN KEY (supervisor_id) REFERENCES usuarios(id)
+    FOREIGN KEY (supervisor_id) REFERENCES usuarios(id),
+    FOREIGN KEY (asignado_a_id) REFERENCES usuarios(id)
 ) ENGINE=InnoDB;
 
 -- 7. ASIGNACIÓN DE TAREAS ESPECÍFICAS
@@ -102,4 +104,24 @@ CREATE TABLE repuestos_tarea (
     precio_unidad_momento DECIMAL(10,2),
     FOREIGN KEY (tarea_asignada_id) REFERENCES tareas_asignadas(id) ON DELETE CASCADE,
     FOREIGN KEY (producto_id) REFERENCES productos(id)
+) ENGINE=InnoDB;
+
+-- 1️⃣ Tabla de tipos de reparación (categoría principal)
+CREATE TABLE tipos_reparacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    taller_id INT NOT NULL,           -- opcional si tienes varios talleres
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (taller_id) REFERENCES talleres(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- 2️⃣ Tabla de subgrupos de reparación (subtareas)
+CREATE TABLE subgrupos_reparacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_reparacion_id INT NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    minutos_estimados_base INT,      -- opcional para estimaciones de IA
+    FOREIGN KEY (tipo_reparacion_id) REFERENCES tipos_reparacion(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
