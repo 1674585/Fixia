@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     header("Location: /Fixia/index.php?action=misVehiculos");
                     exit;
                 case 'jefe':
-                    header("Location: /Fixia/index.php?action=ordenesTrabajoJefe");
+                    header("Location: /Fixia/index.php?action=ordenesTrabajo");
                     exit;
                 case 'recepcionista':
                     header("Location: /Fixia/index.php?action=registrarVehiculo");

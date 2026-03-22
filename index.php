@@ -52,6 +52,14 @@
         case 'detallesOrden':
             require __DIR__ . '/recurso/r_detallesOrden.php';
             break;  
+        
+        case 'ordenesTrabajo':
+            require __DIR__ . '/recurso/r_ordenesTrabajo.php';
+            break;
+
+        case 'asignarOrden':
+            require __DIR__ . '/recurso/r_asignarOrden.php';
+            break;
 
         default:
             echo "Acción no válida.";

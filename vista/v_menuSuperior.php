@@ -31,11 +31,11 @@
                     break;
                 
                 case 'jefe':
+                    echo '<a href="index.php?action=registrarVehiculo">Registrar Vehículo</a>';
                     echo '<a href="index.php?action=ordenesTrabajo">Órdenes de Trabajo</a>';
                     echo '<a href="index.php?action=reportes">Reportes</a>';
                     echo '<a href="index.php?action=misTareas">Mis Tareas</a>';
                     echo '<a href="index.php?action=usuarios">Gestionar Usuarios</a>';
-                    echo '<a href="index.php?action=registrarVehiculo">Registrar Vehículo</a>';
                     echo '<a href="index.php?action=crearOrden">Crear Orden</a>';
                     break;
                 

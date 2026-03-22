@@ -15,21 +15,95 @@
     <label for="sintomas_cliente">Síntomas del Cliente:</label>
     <textarea name="sintomas_cliente" required></textarea><br>
 
-    <label for="tipo_reparacion">Tipo de Reparación (Opcional):</label>
-    <select name="tipo_reparacion" id="tipo_reparacion">
-        <option value="">-- Seleccionar --</option>
-        <?php foreach ($tipos as $tipo): ?>
-            <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
-        <?php endforeach; ?>
+    <label for="estado">Estado de la Orden:</label>
+    <select name="estado" required>
+        <option value="recibido">Recibido</option>
+        <option value="diagnosticando">Diagnosticando</option>
+        <option value="presupuestado">Presupuestado</option>
+        <option value="en_reparacion">En reparación</option>
+        <option value="listo">Listo</option>
+        <option value="facturado">Facturado</option>
     </select><br>
 
-    <label for="subgrupo_reparacion">Subgrupo de Reparación (Opcional):</label>
-    <select name="subgrupo_reparacion" id="subgrupo_reparacion" disabled>
-        <option value="">-- Seleccionar Tipo Primero --</option>
-    </select><br>
+    <div id="tareas-container">
+        <div class="tarea">
+            <label>Tipo de Reparación:</label>
+            <select name="tareas[0][tipo]" class="tipo">
+                <option value="">-- Seleccionar --</option>
+                <?php foreach ($tipos as $tipo): ?>
+                    <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <label>Subgrupo:</label>
+            <select name="tareas[0][subgrupo]" class="subgrupo" disabled>
+                <option value="">-- Seleccionar Tipo Primero --</option>
+            </select>
+        </div>
+        <button type="button" id="add-tarea">Añadir tarea</button>
+    </div>
+
+    
 
     <button type="submit">Crear Orden</button>
 </form>
+
+<script>
+let index = 1;
+
+document.getElementById('add-tarea').addEventListener('click', () => {
+    const container = document.getElementById('tareas-container');
+
+    const div = document.createElement('div');
+    div.classList.add('tarea');
+
+    div.innerHTML = `
+        <hr>
+        <label>Tipo de Reparación:</label>
+        <select name="tareas[${index}][tipo]" class="tipo">
+            <option value="">-- Seleccionar --</option>
+            <?php foreach ($tipos as $tipo): ?>
+                <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <label>Subgrupo:</label>
+        <select name="tareas[${index}][subgrupo]" class="subgrupo" disabled>
+            <option value="">-- Seleccionar Tipo Primero --</option>
+        </select>
+    `;
+
+    container.appendChild(div);
+    index++;
+});
+
+// Delegación de eventos (clave)
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('tipo')) {
+        const tipoId = e.target.value;
+        const subSelect = e.target.parentElement.querySelector('.subgrupo');
+
+        if (!tipoId) {
+            subSelect.innerHTML = '<option>-- Seleccionar Tipo Primero --</option>';
+            subSelect.disabled = true;
+            return;
+        }
+
+        fetch(`index.php?action=obtenerSubgrupos&tipo_id=${tipoId}`)
+            .then(res => res.json())
+            .then(data => {
+                subSelect.innerHTML = '<option value="">-- Seleccionar Subgrupo --</option>';
+                data.forEach(sub => {
+                    const option = document.createElement('option');
+                    option.value = sub.id;
+                    option.textContent = sub.nombre;
+                    subSelect.appendChild(option);
+                });
+                subSelect.disabled = false;
+            });
+    }
+});
+</script>
 
 <script>
     document.getElementById('tipo_reparacion').addEventListener('change', function() {
