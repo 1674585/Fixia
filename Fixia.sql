@@ -56,6 +56,7 @@ CREATE TABLE productos (
     cantidad_stock INT DEFAULT 0,
     alerta_stock_minimo INT DEFAULT 5,
     precio_venta DECIMAL(10,2) NOT NULL,
+    precio_compra DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (taller_id) REFERENCES talleres(id)
 ) ENGINE=InnoDB;
 

@@ -57,8 +57,31 @@
             require __DIR__ . '/recurso/r_ordenesTrabajo.php';
             break;
 
+        // ── NUEVAS RUTAS ──────────────────────────────
         case 'asignarOrden':
             require __DIR__ . '/recurso/r_asignarOrden.php';
+            break;
+
+        // ── MIS TAREAS ────────────────────────────────
+        case 'misTareas':
+            require __DIR__ . '/recurso/r_misTareas.php';
+            break;
+
+        case 'tareasOrden':
+            require __DIR__ . '/recurso/r_tareasOrden.php';
+            break;
+
+        case 'detallesTarea':
+            require __DIR__ . '/recurso/r_detallesTarea.php';
+            break;
+
+        // ── STOCK ─────────────────────────────────────
+        case 'stock':
+            require __DIR__ . '/recurso/r_stock.php';
+            break;
+
+        case 'stockFormulario':
+            require __DIR__ . '/recurso/r_stockFormulario.php';
             break;
 
         default:
