@@ -23,7 +23,7 @@
     // ── POST: eliminar producto ────────────────────
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
         // Solo roles con permiso de escritura pueden eliminar
-        if (!in_array($_SESSION['rol'], ['ceo', 'jefe', 'recepcionista'])) {
+        if (!in_array($_SESSION['rol'], ['ceo', 'jefe', 'mecanico', 'recepcionista'])) {
             $mensaje_err = "No tienes permisos para eliminar productos.";
         } else {
             $eliminar_id = (int)$_POST['eliminar_id'];

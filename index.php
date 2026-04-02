@@ -75,6 +75,10 @@
             require __DIR__ . '/recurso/r_detallesTarea.php';
             break;
 
+        case 'buscarProductosTarea':
+            require __DIR__ . '/controlador/c_buscarProductosTarea.php';
+            break;
+
         // ── STOCK ─────────────────────────────────────
         case 'stock':
             require __DIR__ . '/recurso/r_stock.php';

@@ -244,6 +244,223 @@
     }
 
     // ─────────────────────────────────────────────────────────────────
+    // REPUESTOS: Buscar productos del taller (para el buscador live)
+    // Devuelve array JSON-friendly, máx 15 resultados
+    // ─────────────────────────────────────────────────────────────────
+    function buscarProductosParaTarea($taller_id, $q) {
+        $conn = conectaBD();
+
+        $like = '%' . $q . '%';
+        $sql  = "SELECT id, nombre, referencia_sku, precio_venta, cantidad_stock
+                 FROM productos
+                 WHERE taller_id = ?
+                   AND (nombre LIKE ? OR referencia_sku LIKE ?)
+                   AND cantidad_stock > 0
+                 ORDER BY nombre ASC
+                 LIMIT 15";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iss", $taller_id, $like, $like);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        $productos = [];
+        while ($fila = $resultado->fetch_assoc()) {
+            $productos[] = $fila;
+        }
+
+        $stmt->close();
+        $conn->close();
+        return $productos;
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // REPUESTOS: Obtener repuestos ya consumidos en una tarea
+    // ─────────────────────────────────────────────────────────────────
+    function obtenerRepuestosDeTarea($tarea_id) {
+        $conn = conectaBD();
+
+        $sql = "SELECT 
+                    rt.id,
+                    rt.cantidad,
+                    rt.precio_unidad_momento,
+                    rt.cantidad * rt.precio_unidad_momento AS subtotal,
+                    p.id              AS producto_id,
+                    p.nombre          AS nombre_producto,
+                    p.referencia_sku,
+                    p.cantidad_stock  AS stock_actual
+                FROM repuestos_tarea rt
+                INNER JOIN productos p ON rt.producto_id = p.id
+                WHERE rt.tarea_asignada_id = ?
+                ORDER BY p.nombre ASC";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $tarea_id);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        $repuestos = [];
+        while ($fila = $resultado->fetch_assoc()) {
+            $repuestos[] = $fila;
+        }
+
+        $stmt->close();
+        $conn->close();
+        return $repuestos;
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // REPUESTOS: Añadir un repuesto a la tarea y descontar del stock
+    // — En una sola transacción para garantizar consistencia
+    // ─────────────────────────────────────────────────────────────────
+    function añadirRepuestoATarea($tarea_id, $mecanico_id, $taller_id, $producto_id, $cantidad) {
+        if ($cantidad <= 0) {
+            return ['exito' => false, 'mensaje' => 'La cantidad debe ser mayor que 0.'];
+        }
+
+        $conn = conectaBD();
+        $conn->begin_transaction();
+
+        try {
+            // 1. Verificar que la tarea pertenece al mecánico y al taller
+            $sql_check = "SELECT ta.id 
+                          FROM tareas_asignadas ta
+                          INNER JOIN ordenes_trabajo ot ON ta.orden_trabajo_id = ot.id
+                          WHERE ta.id = ? AND ta.mecanico_id = ? AND ot.taller_id = ?";
+            $stmt = $conn->prepare($sql_check);
+            $stmt->bind_param("iii", $tarea_id, $mecanico_id, $taller_id);
+            $stmt->execute();
+            if (!$stmt->get_result()->fetch_assoc()) {
+                throw new Exception("No tienes permiso para modificar esta tarea.");
+            }
+            $stmt->close();
+
+            // 2. Verificar stock disponible y obtener precio de venta actual
+            $sql_prod = "SELECT nombre, cantidad_stock, precio_venta 
+                         FROM productos 
+                         WHERE id = ? AND taller_id = ?
+                         FOR UPDATE";   // bloqueo de fila durante la transacción
+            $stmt2 = $conn->prepare($sql_prod);
+            $stmt2->bind_param("ii", $producto_id, $taller_id);
+            $stmt2->execute();
+            $producto = $stmt2->get_result()->fetch_assoc();
+            $stmt2->close();
+
+            if (!$producto) {
+                throw new Exception("Producto no encontrado.");
+            }
+            if ($producto['cantidad_stock'] < $cantidad) {
+                throw new Exception(
+                    "Stock insuficiente. Disponible: {$producto['cantidad_stock']} ud. de \"{$producto['nombre']}\"."
+                );
+            }
+
+            // 3. Comprobar si ya existe ese producto en esta tarea → acumular cantidad
+            $sql_existe = "SELECT id, cantidad FROM repuestos_tarea 
+                           WHERE tarea_asignada_id = ? AND producto_id = ?";
+            $stmt3 = $conn->prepare($sql_existe);
+            $stmt3->bind_param("ii", $tarea_id, $producto_id);
+            $stmt3->execute();
+            $existente = $stmt3->get_result()->fetch_assoc();
+            $stmt3->close();
+
+            $precio = (float)$producto['precio_venta'];
+
+            if ($existente) {
+                // Actualizar cantidad en el registro existente
+                $nueva_cantidad = $existente['cantidad'] + $cantidad;
+                $sql_upd = "UPDATE repuestos_tarea 
+                            SET cantidad = ?, precio_unidad_momento = ?
+                            WHERE id = ?";
+                $stmt4 = $conn->prepare($sql_upd);
+                $stmt4->bind_param("idi", $nueva_cantidad, $precio, $existente['id']);
+                $stmt4->execute();
+                $stmt4->close();
+            } else {
+                // Insertar nuevo registro
+                $sql_ins = "INSERT INTO repuestos_tarea 
+                                (tarea_asignada_id, producto_id, cantidad, precio_unidad_momento)
+                            VALUES (?, ?, ?, ?)";
+                $stmt4 = $conn->prepare($sql_ins);
+                $stmt4->bind_param("iiid", $tarea_id, $producto_id, $cantidad, $precio);
+                $stmt4->execute();
+                $stmt4->close();
+            }
+
+            // 4. Descontar del stock
+            $sql_stock = "UPDATE productos 
+                          SET cantidad_stock = cantidad_stock - ?
+                          WHERE id = ? AND taller_id = ?";
+            $stmt5 = $conn->prepare($sql_stock);
+            $stmt5->bind_param("iii", $cantidad, $producto_id, $taller_id);
+            $stmt5->execute();
+            $stmt5->close();
+
+            $conn->commit();
+            $conn->close();
+
+            return ['exito' => true, 'mensaje' => 'Repuesto añadido y stock actualizado.'];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            $conn->close();
+            return ['exito' => false, 'mensaje' => $e->getMessage()];
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // REPUESTOS: Eliminar un repuesto de la tarea y devolver al stock
+    // ─────────────────────────────────────────────────────────────────
+    function eliminarRepuestoDeTarea($repuesto_id, $mecanico_id, $taller_id) {
+        $conn = conectaBD();
+        $conn->begin_transaction();
+
+        try {
+            // 1. Obtener el repuesto y verificar que la tarea es del mecánico/taller
+            $sql_get = "SELECT rt.id, rt.cantidad, rt.producto_id, rt.tarea_asignada_id
+                        FROM repuestos_tarea rt
+                        INNER JOIN tareas_asignadas ta  ON rt.tarea_asignada_id = ta.id
+                        INNER JOIN ordenes_trabajo ot   ON ta.orden_trabajo_id  = ot.id
+                        WHERE rt.id = ? AND ta.mecanico_id = ? AND ot.taller_id = ?";
+            $stmt = $conn->prepare($sql_get);
+            $stmt->bind_param("iii", $repuesto_id, $mecanico_id, $taller_id);
+            $stmt->execute();
+            $repuesto = $stmt->get_result()->fetch_assoc();
+            $stmt->close();
+
+            if (!$repuesto) {
+                throw new Exception("Repuesto no encontrado o sin permisos.");
+            }
+
+            // 2. Devolver las unidades al stock
+            $sql_devolver = "UPDATE productos 
+                             SET cantidad_stock = cantidad_stock + ?
+                             WHERE id = ?";
+            $stmt2 = $conn->prepare($sql_devolver);
+            $stmt2->bind_param("ii", $repuesto['cantidad'], $repuesto['producto_id']);
+            $stmt2->execute();
+            $stmt2->close();
+
+            // 3. Eliminar el registro de repuesto
+            $sql_del = "DELETE FROM repuestos_tarea WHERE id = ?";
+            $stmt3 = $conn->prepare($sql_del);
+            $stmt3->bind_param("i", $repuesto_id);
+            $stmt3->execute();
+            $stmt3->close();
+
+            $conn->commit();
+            $conn->close();
+
+            return ['exito' => true, 'mensaje' => 'Repuesto eliminado y stock recuperado.'];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            $conn->close();
+            return ['exito' => false, 'mensaje' => $e->getMessage()];
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────
     // Marcar manualmente una orden como 'listo'
     // Solo si todas sus tareas están finalizadas
     // ─────────────────────────────────────────────────────────────────
