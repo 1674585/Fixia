@@ -88,6 +88,24 @@
             require __DIR__ . '/recurso/r_stockFormulario.php';
             break;
 
+        // ── FACTURACIÓN ───────────────────────────────
+        case 'facturacion':
+            require __DIR__ . '/recurso/r_facturacion.php';
+            break;
+
+        case 'facturaDetalle':
+            require __DIR__ . '/recurso/r_facturaDetalle.php';
+            break;
+
+        case 'confirmarPago':
+            require __DIR__ . '/recurso/r_confirmarPago.php';
+            break;
+
+        // ── REPORTES ──────────────────────────────────
+        case 'reportes':
+            require __DIR__ . '/recurso/r_reportes.php';
+            break;
+
         default:
             echo "Acción no válida.";
     }
