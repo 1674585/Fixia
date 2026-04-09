@@ -106,6 +106,19 @@
             require __DIR__ . '/recurso/r_reportes.php';
             break;
 
+        // ── USUARIOS ──────────────────────────────────
+        case 'usuarios':
+            require __DIR__ . '/recurso/r_usuarios.php';
+            break;
+
+        case 'usuariosFormulario':
+            require __DIR__ . '/recurso/r_usuariosFormulario.php';
+            break;
+
+        case 'cambiarPassword':
+            require __DIR__ . '/recurso/r_cambiarPassword.php';
+            break;
+
         default:
             echo "Acción no válida.";
     }
