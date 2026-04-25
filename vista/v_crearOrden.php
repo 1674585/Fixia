@@ -39,6 +39,9 @@
             <select name="tareas[0][subgrupo]" class="subgrupo" disabled>
                 <option value="">-- Seleccionar Tipo Primero --</option>
             </select>
+
+            <button type="button" class="btn-predecir">Predecir</button>
+            <span class="prediccion-resultado"></span>
         </div>
         <button type="button" id="add-tarea">Añadir tarea</button>
     </div>
@@ -71,6 +74,9 @@ document.getElementById('add-tarea').addEventListener('click', () => {
         <select name="tareas[${index}][subgrupo]" class="subgrupo" disabled>
             <option value="">-- Seleccionar Tipo Primero --</option>
         </select>
+
+        <button type="button" class="btn-predecir">Predecir</button>
+        <span class="prediccion-resultado"></span>
     `;
 
     container.appendChild(div);
@@ -102,6 +108,58 @@ document.addEventListener('change', function(e) {
                 subSelect.disabled = false;
             });
     }
+});
+
+// Predicción de coste y tiempo (delegación, vale también para tareas añadidas dinámicamente)
+document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('btn-predecir')) return;
+
+    const btn       = e.target;
+    const tareaDiv  = btn.closest('.tarea');
+    const resultado = tareaDiv.querySelector('.prediccion-resultado');
+    const subgrupo  = tareaDiv.querySelector('.subgrupo');
+    const vehiculo  = document.querySelector('select[name="vehiculo_id"]');
+
+    const vehiculoId = vehiculo ? vehiculo.value : '';
+    const subgrupoId = subgrupo ? subgrupo.value : '';
+
+    if (!vehiculoId) {
+        resultado.textContent = '⚠ Selecciona un vehículo primero';
+        resultado.className = 'prediccion-resultado prediccion-error';
+        return;
+    }
+    if (!subgrupoId) {
+        resultado.textContent = '⚠ Selecciona un subgrupo';
+        resultado.className = 'prediccion-resultado prediccion-error';
+        return;
+    }
+
+    btn.disabled = true;
+    resultado.textContent = 'Calculando…';
+    resultado.className = 'prediccion-resultado prediccion-cargando';
+
+    const fd = new FormData();
+    fd.append('vehiculo_id', vehiculoId);
+    fd.append('subgrupo_id', subgrupoId);
+
+    fetch('index.php?action=predecirTarea', { method: 'POST', body: fd })
+        .then(r => r.json())
+        .then(data => {
+            if (!data.ok) {
+                resultado.textContent = '✗ ' + (data.error || 'Error en la predicción');
+                resultado.className = 'prediccion-resultado prediccion-error';
+                return;
+            }
+            const coste = data.coste.toFixed(2).replace('.', ',');
+            const horas = data.horas.toFixed(2).replace('.', ',');
+            resultado.textContent = `~ ${coste} € · ${horas} h (${data.modelo_usado})`;
+            resultado.className = 'prediccion-resultado prediccion-ok';
+        })
+        .catch(err => {
+            resultado.textContent = '✗ Error de red: ' + err.message;
+            resultado.className = 'prediccion-resultado prediccion-error';
+        })
+        .finally(() => { btn.disabled = false; });
 });
 </script>
 

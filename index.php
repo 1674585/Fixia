@@ -119,6 +119,15 @@
             require __DIR__ . '/recurso/r_cambiarPassword.php';
             break;
 
+        // ── IA (CSVs + modelos ML) ────────────────────
+        case 'ia':
+            require __DIR__ . '/recurso/r_ia.php';
+            break;
+
+        case 'predecirTarea':
+            require __DIR__ . '/controlador/c_predecirTarea.php';
+            break;
+
         default:
             echo "Acción no válida.";
     }
