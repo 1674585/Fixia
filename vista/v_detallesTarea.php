@@ -317,6 +317,40 @@ if ($tarea['duracion_real_minutos']) {
 
     </div><!-- /.repuestos-section -->
 
+
+    <!-- ════════════════════════════════════════════
+         FILA 3: Chatbot de ayuda al mecánico
+    ════════════════════════════════════════════ -->
+    <div class="chatbot-section" id="chatbotSection"
+         data-tarea-id="<?= $tarea_id ?>"
+         data-coche="<?= htmlspecialchars($tarea['marca'] . ' ' . $tarea['modelo'] . ' ' . $tarea['anio']) ?>">
+
+        <h3 class="section-titulo">Asistente IA — dudas sobre la tarea</h3>
+
+        <div class="chatbot-box">
+            <div class="chatbot-info">
+                Contexto: <strong><?= htmlspecialchars($tarea['marca'] . ' ' . $tarea['modelo'] . ' (' . $tarea['anio'] . ')') ?></strong>
+                · <?= htmlspecialchars($tarea['nombre_tarea']) ?>
+            </div>
+
+            <div class="chatbot-historial" id="chatbotHistorial">
+                <div class="chat-msg chat-msg-bot">
+                    Hola, ¿en qué puedo ayudarte con esta tarea? Pregúntame sobre pares de apriete,
+                    capacidades, procedimientos o cualquier duda técnica de este vehículo.
+                </div>
+            </div>
+
+            <form id="chatbotForm" class="chatbot-form" autocomplete="off">
+                <textarea id="chatbotInput"
+                          class="chatbot-input"
+                          rows="2"
+                          placeholder="Escribe tu duda… (Enter = enviar, Shift+Enter = salto de línea)"
+                          maxlength="2000"></textarea>
+                <button type="submit" id="chatbotBtn" class="btn chatbot-btn">Enviar</button>
+            </form>
+        </div>
+    </div><!-- /.chatbot-section -->
+
 </div><!-- /.dt-container -->
 
 
@@ -429,4 +463,205 @@ function escHtml(str) {
 function formatEur(num) {
     return parseFloat(num).toFixed(2).replace('.', ',');
 }
+
+// ═══════════════════════════════════════════════════════════════
+//  CHATBOT IA — ayuda al mecánico
+// ═══════════════════════════════════════════════════════════════
+(function() {
+    const section    = document.getElementById('chatbotSection');
+    if (!section) return;
+
+    const tareaId    = section.dataset.tareaId;
+    const cocheKey   = section.dataset.coche;          // p.ej. "Renault Clio 2018"
+    const historial  = document.getElementById('chatbotHistorial');
+    const form       = document.getElementById('chatbotForm');
+    const input      = document.getElementById('chatbotInput');
+    const btn        = document.getElementById('chatbotBtn');
+
+    // Clave única en sessionStorage por (tarea + coche). Solo dura mientras la pestaña esté abierta.
+    const storageKey = 'chatbot_t' + tareaId;
+
+    // ── Cargar historial previo (sessionStorage) ──────────────
+    let memoria = [];
+    try {
+        const guardado = sessionStorage.getItem(storageKey);
+        if (guardado) {
+            memoria = JSON.parse(guardado) || [];
+            memoria.forEach(m => pintarMensaje(m.role, m.content, false));
+        }
+    } catch (_) { memoria = []; }
+
+    // ── Eventos ───────────────────────────────────────────────
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        enviarMensaje();
+    });
+
+    input.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            enviarMensaje();
+        }
+    });
+
+    async function enviarMensaje() {
+        const texto = input.value.trim();
+        if (!texto || btn.disabled) return;
+
+        pintarMensaje('user', texto, true);
+        memoria.push({ role: 'user', content: texto });
+        guardarMemoria();
+
+        input.value = '';
+        btn.disabled = true;
+        const indicador = pintarMensaje('bot', '…', false, true);
+
+        try {
+            const resp = await fetch('index.php?action=chatbotTarea', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({
+                    tarea_id:  parseInt(tareaId, 10),
+                    mensaje:   texto,
+                    historial: memoria.slice(0, -1)   // sin el mensaje recién añadido
+                                       .map(m => ({
+                                           role:    m.role === 'bot' ? 'assistant' : m.role,
+                                           content: m.content
+                                       })),
+                }),
+            });
+
+            const data = await resp.json();
+            indicador.remove();
+
+            if (!resp.ok || !data.ok) {
+                pintarMensaje('error', '⚠ ' + (data.error || 'Error al consultar la IA.'), true);
+                btn.disabled = false;
+                return;
+            }
+
+            pintarMensaje('bot', data.respuesta, true);
+            memoria.push({ role: 'assistant', content: data.respuesta });
+            guardarMemoria();
+        } catch (err) {
+            indicador.remove();
+            pintarMensaje('error', '⚠ Error de red: ' + err.message, true);
+        } finally {
+            btn.disabled = false;
+            input.focus();
+        }
+    }
+
+    function pintarMensaje(role, texto, autoScroll, esIndicador) {
+        const div = document.createElement('div');
+        div.className = 'chat-msg ' + (
+            role === 'user'  ? 'chat-msg-user'  :
+            role === 'error' ? 'chat-msg-error' :
+                               'chat-msg-bot'
+        );
+        if (esIndicador) div.classList.add('chat-msg-indicador');
+        div.textContent = texto;
+        historial.appendChild(div);
+        if (autoScroll) historial.scrollTop = historial.scrollHeight;
+        return div;
+    }
+
+    function guardarMemoria() {
+        try {
+            // Recortar a últimos 20 turnos para no inflar sessionStorage
+            const recortado = memoria.slice(-20);
+            sessionStorage.setItem(storageKey, JSON.stringify(recortado));
+            memoria = recortado;
+        } catch (_) {}
+    }
+})();
 </script>
+
+<style>
+/* ── Chatbot IA — UI mínima autocontenida ──────────────────── */
+.chatbot-section { margin-top: 28px; }
+.chatbot-box {
+    border: 1px solid #d8dde3;
+    border-radius: 8px;
+    background: #fafbfc;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.chatbot-info {
+    font-size: 13px;
+    color: #5a6470;
+    padding: 6px 10px;
+    background: #eef2f6;
+    border-radius: 6px;
+}
+.chatbot-historial {
+    max-height: 380px;
+    min-height: 140px;
+    overflow-y: auto;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #e3e7ec;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.chat-msg {
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 85%;
+    line-height: 1.45;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.chat-msg-user {
+    align-self: flex-end;
+    background: #2563eb;
+    color: #fff;
+    border-bottom-right-radius: 2px;
+}
+.chat-msg-bot {
+    align-self: flex-start;
+    background: #eef2f6;
+    color: #1f2937;
+    border-bottom-left-radius: 2px;
+}
+.chat-msg-error {
+    align-self: stretch;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+.chat-msg-indicador { opacity: 0.6; font-style: italic; }
+
+.chatbot-form {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+.chatbot-input {
+    flex: 1;
+    resize: vertical;
+    min-height: 44px;
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+}
+.chatbot-input:focus { outline: none; border-color: #2563eb; }
+.chatbot-btn {
+    padding: 10px 18px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.chatbot-btn:hover:not(:disabled) { background: #1d4ed8; }
+.chatbot-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+</style>

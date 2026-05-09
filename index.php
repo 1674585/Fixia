@@ -128,6 +128,11 @@
             require __DIR__ . '/controlador/c_predecirTarea.php';
             break;
 
+        // ── CHATBOT IA (ayuda al mecánico) ────────────
+        case 'chatbotTarea':
+            require __DIR__ . '/controlador/c_chatbotTarea.php';
+            break;
+
         default:
             echo "Acción no válida.";
     }
