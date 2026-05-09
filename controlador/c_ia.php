@@ -17,9 +17,7 @@
     }
 
     require_once __DIR__ . '/../modelo/m_ia.php';
-
-    // Si 'python' no está en el PATH del servidor, cambia a ruta absoluta.
-    if (!defined('PYTHON_BIN')) define('PYTHON_BIN', 'python');
+    require_once __DIR__ . '/../modelo/m_mlClient.php';
 
     $carpeta_csv      = __DIR__ . '/../csv';
     $carpeta_modelos  = __DIR__ . '/../modelos_ml';
@@ -70,39 +68,28 @@
 
         header('Content-Type: application/json');
 
-        $script = realpath($carpeta_modelos . '/entrenar.py');
-        if (!$script || !is_file($script)) {
-            http_response_code(500);
-            echo json_encode(['ok' => false, 'error' => 'No se encontró entrenar.py']);
+        $resp = mlClientPost('/train', [], ML_API_TRAIN_TIMEOUT);
+
+        if ($resp['error'] !== null) {
+            http_response_code(503);
+            echo json_encode(['ok' => false, 'error' => $resp['error']]);
             exit;
         }
 
-        $cmd = escapeshellarg(PYTHON_BIN) . ' ' . escapeshellarg($script);
-
-        $descriptores = [
-            0 => ['pipe', 'r'],
-            1 => ['pipe', 'w'],
-            2 => ['pipe', 'w'],
-        ];
-
-        $proc = proc_open($cmd, $descriptores, $pipes, dirname($script));
-        if (!is_resource($proc)) {
-            http_response_code(500);
-            echo json_encode(['ok' => false, 'error' => 'No se pudo ejecutar Python']);
+        if ($resp['status'] >= 400) {
+            $mensaje = $resp['data']['error'] ?? 'Error en el microservicio ML';
+            http_response_code($resp['status']);
+            echo json_encode(['ok' => false, 'error' => $mensaje]);
             exit;
         }
 
-        fclose($pipes[0]);
-        $stdout = stream_get_contents($pipes[1]); fclose($pipes[1]);
-        $stderr = stream_get_contents($pipes[2]); fclose($pipes[2]);
-        $code   = proc_close($proc);
+        if ($resp['data'] === null) {
+            http_response_code(502);
+            echo json_encode(['ok' => false, 'error' => 'Respuesta no válida del microservicio ML', 'raw' => $resp['raw']]);
+            exit;
+        }
 
-        echo json_encode([
-            'ok'      => $code === 0,
-            'code'    => $code,
-            'stdout'  => trim($stdout),
-            'stderr'  => trim($stderr),
-        ]);
+        echo json_encode($resp['data']);
         exit;
     }
 

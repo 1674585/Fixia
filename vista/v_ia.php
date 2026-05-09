@@ -154,13 +154,23 @@ document.getElementById('btn-entrenar-modelos').addEventListener('click', () => 
     fetch('index.php?action=ia', { method: 'POST', body: fd })
         .then(r => r.json())
         .then(data => {
-            const salida = (data.stdout || '') + (data.stderr ? '\n--- stderr ---\n' + data.stderr : '');
-            if (salida) {
-                log.textContent = salida;
+            const lineas = [];
+            if (Array.isArray(data.detalle)) {
+                data.detalle.forEach(d => {
+                    const r2 = (d.r2_train !== null && d.r2_train !== undefined)
+                        ? d.r2_train.toFixed(3) : 'n/a';
+                    lineas.push(`[${d.etiqueta}] filas=${d.filas}  R2_train=${r2}  -> ${d.archivo}`);
+                });
+            }
+            if (Array.isArray(data.mensajes)) {
+                data.mensajes.forEach(m => lineas.push(m));
+            }
+            if (lineas.length) {
+                log.textContent = lineas.join('\n');
                 log.hidden = false;
             }
             if (!data.ok) {
-                estado.textContent = 'Error entrenando (code ' + data.code + ')' + (data.error ? ': ' + data.error : '');
+                estado.textContent = 'Error entrenando' + (data.error ? ': ' + data.error : '');
                 estado.className   = 'ia-estado-accion ia-estado-error';
                 return;
             }
