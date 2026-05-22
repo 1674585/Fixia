@@ -40,17 +40,17 @@ if ($tarea['duracion_real_minutos']) {
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
         <a href="index.php?action=misTareas">Mis Tareas</a>
-        <span class="bc-sep">›</span>
+        <span class="bc-sep">/</span>
         <a href="index.php?action=tareasOrden&orden_id=<?= $orden_id ?>">Orden #<?= $orden_id ?></a>
-        <span class="bc-sep">›</span>
+        <span class="bc-sep">/</span>
         <span><?= htmlspecialchars(mb_strimwidth($tarea['nombre_tarea'], 0, 30, '...')) ?></span>
     </nav>
 
     <?php if ($error): ?>
-        <div class="alerta alerta-error">✗ <?= htmlspecialchars($error) ?></div>
+        <div class="alerta alerta-error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
     <?php if ($exito): ?>
-        <div class="alerta alerta-exito">✓ <?= htmlspecialchars($exito) ?></div>
+        <div class="alerta alerta-exito"><?= htmlspecialchars($exito) ?></div>
     <?php endif; ?>
 
     <!-- ════════════════════════════════════════════
@@ -190,8 +190,8 @@ if ($tarea['duracion_real_minutos']) {
                     </div>
 
                     <div class="acciones-rapidas">
-                        <button type="button" class="btn-rapido" onclick="rellenarAhora('hora_inicio')">▷ Inicio = ahora</button>
-                        <button type="button" class="btn-rapido" onclick="rellenarAhora('hora_fin')">■ Fin = ahora</button>
+                        <button type="button" class="btn-rapido" onclick="rellenarAhora('hora_inicio')">Inicio = ahora</button>
+                        <button type="button" class="btn-rapido" onclick="rellenarAhora('hora_fin')">Fin = ahora</button>
                     </div>
 
                     <div class="form-acciones">
@@ -209,7 +209,7 @@ if ($tarea['duracion_real_minutos']) {
     ════════════════════════════════════════════ -->
     <div class="repuestos-section">
 
-        <h3 class="section-titulo">🔩 Repuestos y materiales consumidos</h3>
+        <h3 class="section-titulo">Repuestos y materiales consumidos</h3>
 
         <!-- Tabla de repuestos ya añadidos -->
         <?php if (empty($repuestos)): ?>
@@ -248,7 +248,7 @@ if ($tarea['duracion_real_minutos']) {
                                       onsubmit="return confirm('¿Quitar este repuesto? Se devolverán <?= (int)$r['cantidad'] ?> unidades al stock.')">
                                     <input type="hidden" name="accion"      value="eliminar_repuesto">
                                     <input type="hidden" name="repuesto_id" value="<?= $r['id'] ?>">
-                                    <button type="submit" class="btn-quitar">✕ Quitar</button>
+                                    <button type="submit" class="btn-quitar">Quitar</button>
                                 </form>
                             </td>
                         </tr>
@@ -290,7 +290,7 @@ if ($tarea['duracion_real_minutos']) {
                         <span id="productoSeleccionadoNombre"></span>
                         <span id="productoSeleccionadoPrecio" class="producto-precio"></span>
                         <span id="productoSeleccionadoStock"  class="producto-stock"></span>
-                        <button type="button" onclick="limpiarSeleccion()" class="btn-limpiar-sel">✕</button>
+                        <button type="button" onclick="limpiarSeleccion()" class="btn-limpiar-sel">Limpiar</button>
                     </div>
                 </div>
 
@@ -535,7 +535,7 @@ function formatEur(num) {
             indicador.remove();
 
             if (!resp.ok || !data.ok) {
-                pintarMensaje('error', '⚠ ' + (data.error || 'Error al consultar la IA.'), true);
+                pintarMensaje('error', data.error || 'Error al consultar la IA.', true);
                 btn.disabled = false;
                 return;
             }
@@ -545,7 +545,7 @@ function formatEur(num) {
             guardarMemoria();
         } catch (err) {
             indicador.remove();
-            pintarMensaje('error', '⚠ Error de red: ' + err.message, true);
+            pintarMensaje('error', 'Error de red: ' + err.message, true);
         } finally {
             btn.disabled = false;
             input.focus();

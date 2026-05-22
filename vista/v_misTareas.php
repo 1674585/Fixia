@@ -30,12 +30,11 @@ $estados_orden = [
     </div>
  
     <?php if (isset($_GET['guardada'])): ?>
-        <div class="alerta alerta-exito">✓ Tarea actualizada correctamente.</div>
+        <div class="alerta alerta-exito">Tarea actualizada correctamente.</div>
     <?php endif; ?>
- 
+
     <?php if (empty($ordenes)): ?>
         <div class="mt-vacio">
-            <div class="mt-vacio-icono">🔧</div>
             <p>No tienes órdenes de trabajo asignadas en este momento.</p>
         </div>
     <?php else: ?>
@@ -61,7 +60,7 @@ $estados_orden = [
                     </div>
  
                     <div class="orden-cliente">
-                        <span class="icono-cliente">👤</span>
+                        <span class="icono-cliente">Cliente:</span>
                         <?= htmlspecialchars($orden['nombre_cliente']) ?>
                     </div>
  
@@ -89,7 +88,7 @@ $estados_orden = [
                         <?php if ($pendientes > 0): ?>
                             <span class="badge-pendientes"><?= $pendientes ?> pendiente<?= $pendientes > 1 ? 's' : '' ?></span>
                         <?php else: ?>
-                            <span class="badge-completada">✓ Completada</span>
+                            <span class="badge-completada">Completada</span>
                         <?php endif; ?>
                     </div>
                 </a>

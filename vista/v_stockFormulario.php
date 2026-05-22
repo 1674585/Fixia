@@ -11,19 +11,19 @@
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
         <a href="index.php?action=stock">Stock</a>
-        <span class="bc-sep">›</span>
+        <span class="bc-sep">/</span>
         <span><?= $es_edicion ? 'Editar producto' : 'Añadir producto' ?></span>
     </nav>
 
     <div class="sf-header">
-        <h2><?= $es_edicion ? '✏ Editar producto' : '+ Añadir producto' ?></h2>
+        <h2><?= $es_edicion ? 'Editar producto' : 'Añadir producto' ?></h2>
         <?php if ($es_edicion): ?>
             <span class="sf-id-badge">ID #<?= (int)$producto['id'] ?></span>
         <?php endif; ?>
     </div>
 
     <?php if ($error): ?>
-        <div class="alerta alerta-error">✗ <?= htmlspecialchars($error) ?></div>
+        <div class="alerta alerta-error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
     <form method="POST"
@@ -158,7 +158,7 @@
         <div class="sf-acciones">
             <a href="index.php?action=stock" class="btn btn-cancelar">Cancelar</a>
             <button type="submit" class="btn btn-guardar">
-                <?= $es_edicion ? '💾 Guardar cambios' : '+ Añadir producto' ?>
+                <?= $es_edicion ? 'Guardar cambios' : 'Añadir producto' ?>
             </button>
         </div>
 

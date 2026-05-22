@@ -10,7 +10,7 @@
  
     <!-- Cabecera -->
     <div class="asignar-header">
-        <a href="index.php?action=ordenesTrabajo" class="btn-volver">← Volver a órdenes</a>
+        <a href="index.php?action=ordenesTrabajo" class="btn-volver">Volver a órdenes</a>
         <h2>Asignar Orden #<?= htmlspecialchars($orden['id']) ?></h2>
     </div>
  
@@ -66,7 +66,7 @@
  
             <?php if ($orden['nombre_mecanico']): ?>
                 <div class="dato-fila aviso-reasignacion">
-                    <span class="dato-label">⚠ Actualmente asignada a</span>
+                    <span class="dato-label">Actualmente asignada a</span>
                     <strong><?= htmlspecialchars($orden['nombre_mecanico']) ?></strong>
                 </div>
             <?php endif; ?>
@@ -92,14 +92,21 @@
                                        value="<?= $mec['id'] ?>"
                                        <?= ($orden['asignado_a_id'] == $mec['id']) ? 'checked' : '' ?>>
                                 <div class="mecanico-info">
-                                    <span class="mecanico-nombre"><?= htmlspecialchars($mec['nombre_completo']) ?></span>
+                                    <span class="mecanico-nombre">
+                                        <?= htmlspecialchars($mec['nombre_completo']) ?>
+                                        <?php if (($mec['rol'] ?? '') === 'jefe'): ?>
+                                            <small class="rol-jefe">
+                                                — jefe<?= (int)$mec['id'] === (int)$_SESSION['user_id'] ? ' (tú)' : '' ?>
+                                            </small>
+                                        <?php endif; ?>
+                                        <?php if ($orden['asignado_a_id'] == $mec['id']): ?>
+                                            <small class="badge-actual">— asignado actualmente</small>
+                                        <?php endif; ?>
+                                    </span>
                                     <?php if ($mec['telefono']): ?>
                                         <span class="mecanico-tel"><?= htmlspecialchars($mec['telefono']) ?></span>
                                     <?php endif; ?>
                                 </div>
-                                <?php if ($orden['asignado_a_id'] == $mec['id']): ?>
-                                    <span class="badge-actual">Asignado</span>
-                                <?php endif; ?>
                             </label>
                         <?php endforeach; ?>
                     </div>

@@ -25,10 +25,10 @@ $puede_editar = in_array($_SESSION['rol'], ['ceo', 'jefe', 'recepcionista']);
 
     <!-- ── Alertas flash ── -->
     <?php if ($mensaje_ok): ?>
-        <div class="alerta alerta-exito">✓ <?= htmlspecialchars($mensaje_ok) ?></div>
+        <div class="alerta alerta-exito"><?= htmlspecialchars($mensaje_ok) ?></div>
     <?php endif; ?>
     <?php if ($mensaje_err): ?>
-        <div class="alerta alerta-error">✗ <?= htmlspecialchars($mensaje_err) ?></div>
+        <div class="alerta alerta-error"><?= htmlspecialchars($mensaje_err) ?></div>
     <?php endif; ?>
 
     <!-- ── Tarjetas resumen ── -->
@@ -81,7 +81,7 @@ $puede_editar = in_array($_SESSION['rol'], ['ceo', 'jefe', 'recepcionista']);
             <button type="submit" class="btn btn-filtrar">Filtrar</button>
 
             <?php if ($filtros['busqueda'] || $filtros['alerta_stock']): ?>
-                <a href="index.php?action=stock" class="btn btn-limpiar">✕ Limpiar</a>
+                <a href="index.php?action=stock" class="btn btn-limpiar">Limpiar</a>
             <?php endif; ?>
         </div>
     </form>
@@ -89,7 +89,6 @@ $puede_editar = in_array($_SESSION['rol'], ['ceo', 'jefe', 'recepcionista']);
     <!-- ── Tabla de productos ── -->
     <?php if (empty($productos)): ?>
         <div class="stock-vacio">
-            <div class="stock-vacio-icono">📦</div>
             <p>No se encontraron productos<?= $filtros['busqueda'] ? ' para "' . htmlspecialchars($filtros['busqueda']) . '"' : '' ?>.</p>
             <?php if ($puede_editar): ?>
                 <a href="index.php?action=stockFormulario" class="btn btn-primary">Añadir el primer producto</a>
@@ -170,7 +169,7 @@ $puede_editar = in_array($_SESSION['rol'], ['ceo', 'jefe', 'recepcionista']);
                                 <td class="col-acciones acciones">
                                     <a href="index.php?action=stockFormulario&id=<?= $p['id'] ?>"
                                        class="btn btn-sm btn-editar" title="Editar">
-                                        ✏ Editar
+                                        Editar
                                     </a>
 
                                     <!-- Botón eliminar con confirmación inline -->
@@ -178,7 +177,7 @@ $puede_editar = in_array($_SESSION['rol'], ['ceo', 'jefe', 'recepcionista']);
                                             class="btn btn-sm btn-eliminar"
                                             onclick="confirmarEliminar(<?= $p['id'] ?>, '<?= htmlspecialchars(addslashes($p['nombre'])) ?>')"
                                             title="Eliminar">
-                                        🗑 Eliminar
+                                        Eliminar
                                     </button>
                                 </td>
                             <?php endif; ?>
@@ -198,7 +197,6 @@ $puede_editar = in_array($_SESSION['rol'], ['ceo', 'jefe', 'recepcionista']);
 <!-- ── Modal de confirmación de eliminación ── -->
 <div id="modalEliminar" class="modal-overlay" style="display:none">
     <div class="modal-caja">
-        <div class="modal-icono">🗑</div>
         <h3 class="modal-titulo">Eliminar producto</h3>
         <p class="modal-texto">
             ¿Estás seguro de que quieres eliminar <strong id="modalNombreProducto"></strong>?

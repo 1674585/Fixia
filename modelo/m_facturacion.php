@@ -12,6 +12,8 @@
                     ot.estado,
                     ot.fecha_creacion,
                     ot.sintomas_cliente,
+                    ot.precio_estimado_ia,
+                    ot.tiempo_estimado_ia,
                     v.matricula,
                     v.marca,
                     v.modelo,
@@ -40,6 +42,7 @@
                 WHERE ot.taller_id = ?
                   AND ot.estado    = 'listo'
                 GROUP BY ot.id, ot.estado, ot.fecha_creacion, ot.sintomas_cliente,
+                         ot.precio_estimado_ia, ot.tiempo_estimado_ia,
                          v.matricula, v.marca, v.modelo, v.anio,
                          cliente.nombre_completo, cliente.telefono, t.tarifa_hora_base
                 ORDER BY ot.fecha_creacion ASC";
@@ -72,6 +75,9 @@
                           ot.fecha_creacion,
                           ot.sintomas_cliente,
                           ot.diagnostico_tecnico,
+                          ot.precio_estimado_ia,
+                          ot.tiempo_estimado_ia,
+                          ot.facturado_en,
                           v.matricula, v.marca, v.modelo, v.anio, v.ultimo_kilometraje,
                           CONCAT(cliente.nombre_completo) AS nombre_cliente,
                           cliente.telefono               AS telefono_cliente,
@@ -80,12 +86,14 @@
                           t.nombre                       AS nombre_taller,
                           t.identificacion_fiscal,
                           t.direccion                    AS direccion_taller,
-                          t.tarifa_hora_base
+                          t.tarifa_hora_base,
+                          fact.nombre_completo           AS nombre_facturador
                       FROM ordenes_trabajo ot
                       INNER JOIN talleres t       ON ot.taller_id    = t.id
                       INNER JOIN vehiculos v      ON ot.vehiculo_id  = v.id
                       INNER JOIN usuarios cliente ON v.cliente_id    = cliente.id
                       INNER JOIN usuarios creador ON ot.creado_por_id = creador.id
+                      LEFT  JOIN usuarios fact    ON ot.facturado_por_id = fact.id
                       WHERE ot.id = ? AND ot.taller_id = ?";
 
         $stmt = $conn->prepare($sql_orden);
@@ -106,6 +114,8 @@
                            ta.hora_inicio,
                            ta.hora_fin,
                            ta.duracion_real_minutos,
+                           ta.precio_estimado,
+                           ta.tiempo_estimado_minutos,
                            ROUND(ta.duracion_real_minutos / 60.0 * ?, 2) AS coste_mano_obra,
                            ct.nombre_tarea,
                            ct.minutos_estimados_base,
@@ -114,6 +124,7 @@
                        INNER JOIN catalogo_tareas ct ON ta.tarea_catalogo_id = ct.id
                        INNER JOIN usuarios mec        ON ta.mecanico_id       = mec.id
                        WHERE ta.orden_trabajo_id = ?
+                         AND ta.estado <> 'rechazada'
                        ORDER BY ta.id ASC";
 
         $stmt2 = $conn->prepare($sql_tareas);
@@ -173,28 +184,53 @@
         }
         unset($tarea);
 
+        $total_factura  = round($coste_total_mano_obra + $coste_total_materiales, 2);
+        $total_estimado = $orden['precio_estimado_ia'] !== null
+            ? round((float)$orden['precio_estimado_ia'], 2) : null;
+        $diferencia = $total_estimado !== null ? round($total_factura - $total_estimado, 2) : null;
+
         return [
             'orden'                  => $orden,
             'tareas'                 => $tareas,
             'coste_total_mano_obra'  => round($coste_total_mano_obra,  2),
             'coste_total_materiales' => round($coste_total_materiales, 2),
-            'total_factura'          => round($coste_total_mano_obra + $coste_total_materiales, 2),
+            'total_factura'          => $total_factura,
+            'total_estimado'         => $total_estimado,
+            'diferencia_estimado'    => $diferencia,
         ];
     }
 
     // ─────────────────────────────────────────────────────────────────
-    // Confirmar pago: pasar orden de 'listo' a 'facturado'
+    // Confirmar pago: pasar orden de 'listo' a 'facturado' y registrar
+    // qué usuario marcó la facturación y cuándo (auditoría).
     // ─────────────────────────────────────────────────────────────────
-    function confirmarPagoOrden($orden_id, $taller_id) {
+    function confirmarPagoOrden($orden_id, $taller_id, $usuario_id) {
+        if ($orden_id <= 0 || $taller_id <= 0 || $usuario_id <= 0) {
+            return ['exito' => false, 'mensaje' => 'Parámetros inválidos.'];
+        }
+
         $conn = conectaBD();
 
-        // Solo se puede facturar si está en 'listo'
+        // Validar que el usuario pertenece al taller (defensa en profundidad)
+        $stmt = $conn->prepare("SELECT id FROM usuarios WHERE id = ? AND taller_id = ?");
+        $stmt->bind_param("ii", $usuario_id, $taller_id);
+        $stmt->execute();
+        $valido = (bool)$stmt->get_result()->fetch_assoc();
+        $stmt->close();
+
+        if (!$valido) {
+            $conn->close();
+            return ['exito' => false, 'mensaje' => 'Usuario no autorizado para este taller.'];
+        }
+
         $sql = "UPDATE ordenes_trabajo
-                SET estado = 'facturado'
+                SET estado            = 'facturado',
+                    facturado_por_id  = ?,
+                    facturado_en      = NOW()
                 WHERE id = ? AND taller_id = ? AND estado = 'listo'";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ii", $orden_id, $taller_id);
+        $stmt->bind_param("iii", $usuario_id, $orden_id, $taller_id);
         $stmt->execute();
         $ok = ($stmt->affected_rows === 1);
         $stmt->close();

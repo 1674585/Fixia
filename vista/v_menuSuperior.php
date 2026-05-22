@@ -59,7 +59,7 @@
                 
                 case 'cliente':
                     echo '<a href="index.php?action=misVehiculos">Mis Vehículos</a>';
-                    echo '<a href="index.php?action=aprobarPresupuesto">Aprobar Presupuestos</a>';
+                    echo '<a href="index.php?action=misPresupuestos">Mis Presupuestos</a>';
                     break;
             }
             

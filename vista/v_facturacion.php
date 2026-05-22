@@ -19,15 +19,14 @@
     </div>
 
     <?php if ($mensaje_ok): ?>
-        <div class="alerta alerta-exito">✓ <?= $mensaje_ok ?></div>
+        <div class="alerta alerta-exito"><?= $mensaje_ok ?></div>
     <?php endif; ?>
     <?php if ($mensaje_err): ?>
-        <div class="alerta alerta-error">✗ <?= $mensaje_err ?></div>
+        <div class="alerta alerta-error"><?= $mensaje_err ?></div>
     <?php endif; ?>
 
     <?php if (empty($ordenes)): ?>
         <div class="fac-vacio">
-            <div class="fac-vacio-icono">✅</div>
             <p>No hay órdenes pendientes de cobro en este momento.</p>
         </div>
     <?php else: ?>
@@ -39,9 +38,10 @@
                         <th>Vehículo</th>
                         <th>Cliente</th>
                         <th>Fecha finalización</th>
+                        <th class="col-num">Estimado IA</th>
                         <th class="col-num">Mano de obra</th>
                         <th class="col-num">Materiales</th>
-                        <th class="col-num">Total</th>
+                        <th class="col-num">Total a pagar</th>
                         <th class="col-acciones">Acciones</th>
                     </tr>
                 </thead>
@@ -67,6 +67,14 @@
                             </td>
 
                             <td class="col-num">
+                                <?php if ($o['precio_estimado_ia'] !== null): ?>
+                                    <?= number_format((float)$o['precio_estimado_ia'], 2, ',', '.') ?> €
+                                <?php else: ?>
+                                    <small>—</small>
+                                <?php endif; ?>
+                            </td>
+
+                            <td class="col-num">
                                 <?= number_format((float)$o['coste_mano_obra'], 2, ',', '.') ?> €
                             </td>
 
@@ -81,12 +89,12 @@
                             <td class="col-acciones acciones">
                                 <a href="index.php?action=facturaDetalle&id=<?= $o['id'] ?>"
                                    class="btn btn-sm btn-ver">
-                                    🧾 Ver factura
+                                    Ver factura
                                 </a>
                                 <button type="button"
                                         class="btn btn-sm btn-cobrar"
                                         onclick="abrirModalCobro(<?= $o['id'] ?>, '<?= htmlspecialchars(addslashes($o['nombre_cliente'])) ?>', '<?= htmlspecialchars(addslashes($o['matricula'])) ?>', '<?= number_format((float)$o['total_orden'], 2, ',', '.') ?>')">
-                                    ✓ Confirmar pago
+                                    Confirmar pago
                                 </button>
                             </td>
                         </tr>
@@ -100,7 +108,6 @@
 <!-- ── Modal de confirmación de pago ── -->
 <div id="modalCobro" class="modal-overlay" style="display:none">
     <div class="modal-caja">
-        <div class="modal-icono">💳</div>
         <h3 class="modal-titulo">Confirmar pago</h3>
         <p class="modal-texto">
             Cliente: <strong id="modalCliente"></strong><br>
@@ -118,7 +125,7 @@
                     Cancelar
                 </button>
                 <button type="submit" class="btn btn-confirmar-pago">
-                    ✓ Sí, confirmar pago
+                    Sí, confirmar pago
                 </button>
             </div>
         </form>

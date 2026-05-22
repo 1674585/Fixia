@@ -18,16 +18,16 @@ $roles_labels = [
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
         <a href="index.php?action=usuarios">Usuarios</a>
-        <span class="bc-sep">›</span>
+        <span class="bc-sep">/</span>
         <span><?= $es_edicion ? 'Editar usuario' : 'Nuevo usuario' ?></span>
     </nav>
 
     <div class="uf-header">
-        <h2><?= $es_edicion ? '✏ Editar usuario' : '+ Nuevo usuario' ?></h2>
+        <h2><?= $es_edicion ? 'Editar usuario' : 'Nuevo usuario' ?></h2>
     </div>
 
     <?php if ($error): ?>
-        <div class="alerta alerta-error">✗ <?= htmlspecialchars($error) ?></div>
+        <div class="alerta alerta-error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
     <form method="POST"
@@ -118,13 +118,13 @@ $roles_labels = [
                                minlength="8"
                                required>
                         <span class="campo-ayuda">
-                            El usuario podrá cambiarla desde su perfil. Para cambiar la contraseña de un usuario existente, usa el botón "🔑 Contraseña" en el listado.
+                            El usuario podrá cambiarla desde su perfil. Para cambiar la contraseña de un usuario existente, usa el botón "Contraseña" en el listado.
                         </span>
                     </div>
                 </div>
             <?php else: ?>
                 <div class="uf-seccion uf-seccion-info">
-                    <p class="uf-info-pass">🔑 Para cambiar la contraseña de este usuario, usa el botón <strong>"Contraseña"</strong> en el listado de usuarios.</p>
+                    <p class="uf-info-pass">Para cambiar la contraseña de este usuario, usa el botón <strong>"Contraseña"</strong> en el listado de usuarios.</p>
                 </div>
             <?php endif; ?>
 
@@ -133,7 +133,7 @@ $roles_labels = [
         <div class="uf-acciones">
             <a href="index.php?action=usuarios" class="btn btn-cancelar">Cancelar</a>
             <button type="submit" class="btn btn-guardar">
-                <?= $es_edicion ? '💾 Guardar cambios' : '+ Crear usuario' ?>
+                <?= $es_edicion ? 'Guardar cambios' : 'Crear usuario' ?>
             </button>
         </div>
     </form>

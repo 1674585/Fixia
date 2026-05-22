@@ -17,20 +17,22 @@
                     v.marca,
                     v.modelo,
                     CONCAT(cliente.nombre_completo) AS nombre_cliente,
-                    (SELECT COUNT(*) 
-                     FROM tareas_asignadas ta2 
-                     WHERE ta2.orden_trabajo_id = ot.id 
-                       AND ta2.mecanico_id = ?) AS total_tareas,
-                    (SELECT COUNT(*) 
-                     FROM tareas_asignadas ta3 
-                     WHERE ta3.orden_trabajo_id = ot.id 
-                       AND ta3.mecanico_id = ? 
+                    (SELECT COUNT(*)
+                     FROM tareas_asignadas ta2
+                     WHERE ta2.orden_trabajo_id = ot.id
+                       AND ta2.mecanico_id = ?
+                       AND ta2.estado <> 'rechazada') AS total_tareas,
+                    (SELECT COUNT(*)
+                     FROM tareas_asignadas ta3
+                     WHERE ta3.orden_trabajo_id = ot.id
+                       AND ta3.mecanico_id = ?
                        AND ta3.estado = 'finalizada') AS tareas_finalizadas
                 FROM ordenes_trabajo ot
                 INNER JOIN tareas_asignadas ta ON ta.orden_trabajo_id = ot.id
                 INNER JOIN vehiculos v          ON ot.vehiculo_id = v.id
                 INNER JOIN usuarios cliente     ON v.cliente_id = cliente.id
                 WHERE ta.mecanico_id = ?
+                  AND ta.estado <> 'rechazada'
                   AND ot.taller_id   = ?
                   AND ot.estado != 'listo'
                   AND ot.estado != 'facturado'
@@ -80,10 +82,63 @@
                 WHERE ta.orden_trabajo_id = ?
                   AND ta.mecanico_id      = ?
                   AND ot.taller_id        = ?
+                  AND ta.estado <> 'rechazada'
                 ORDER BY FIELD(ta.estado, 'en_proceso', 'pendiente', 'finalizada'), ta.id ASC";
 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("iii", $orden_id, $mecanico_id, $taller_id);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        $tareas = [];
+        while ($fila = $resultado->fetch_assoc()) {
+            $tareas[] = $fila;
+        }
+
+        $stmt->close();
+        $conn->close();
+        return $tareas;
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // Tareas de una orden SIN filtrar por mecánico (vista supervisor).
+    // Solo debe llamarse desde controladores que ya han validado el rol
+    // (ceo / jefe). Incluye nombre del mecánico asignado.
+    // ─────────────────────────────────────────────────────────────────
+    function obtenerTareasOrdenCompleta($orden_id, $taller_id) {
+        $conn = conectaBD();
+
+        $sql = "SELECT
+                    ta.id,
+                    ta.estado,
+                    ta.hora_inicio,
+                    ta.hora_fin,
+                    ta.duracion_real_minutos,
+                    ta.precio_estimado,
+                    ta.tiempo_estimado_minutos,
+                    ct.nombre_tarea,
+                    ct.minutos_estimados_base,
+                    ot.id                          AS orden_id,
+                    ot.estado                      AS estado_orden,
+                    ot.sintomas_cliente,
+                    v.matricula,
+                    v.marca,
+                    v.modelo,
+                    CONCAT(cliente.nombre_completo) AS nombre_cliente,
+                    mec.nombre_completo            AS nombre_mecanico,
+                    mec.rol                        AS rol_mecanico
+                FROM tareas_asignadas ta
+                INNER JOIN catalogo_tareas ct   ON ta.tarea_catalogo_id = ct.id
+                INNER JOIN ordenes_trabajo ot   ON ta.orden_trabajo_id  = ot.id
+                INNER JOIN vehiculos v          ON ot.vehiculo_id       = v.id
+                INNER JOIN usuarios cliente     ON v.cliente_id         = cliente.id
+                LEFT  JOIN usuarios mec         ON ta.mecanico_id       = mec.id
+                WHERE ta.orden_trabajo_id = ?
+                  AND ot.taller_id        = ?
+                ORDER BY FIELD(ta.estado, 'en_proceso', 'pendiente', 'finalizada', 'rechazada'), ta.id ASC";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $orden_id, $taller_id);
         $stmt->execute();
         $resultado = $stmt->get_result();
 
@@ -198,12 +253,13 @@
             }
             $orden_id = (int)$fila['orden_trabajo_id'];
 
-            // 3. Comprobar si TODAS las tareas de esa orden están finalizadas
-            $sql_check = "SELECT 
+            // 3. Comprobar si TODAS las tareas activas (no rechazadas) están finalizadas
+            $sql_check = "SELECT
                               COUNT(*) AS total,
                               SUM(CASE WHEN estado = 'finalizada' THEN 1 ELSE 0 END) AS finalizadas
                           FROM tareas_asignadas
-                          WHERE orden_trabajo_id = ?";
+                          WHERE orden_trabajo_id = ?
+                            AND estado <> 'rechazada'";
             $stmt3 = $conn->prepare($sql_check);
             $stmt3->bind_param("i", $orden_id);
             $stmt3->execute();
@@ -467,12 +523,13 @@
     function marcarOrdenComoLista($orden_id, $taller_id) {
         $conn = conectaBD();
 
-        // Verificar que todas las tareas estén finalizadas
-        $sql_check = "SELECT 
+        // Verificar que todas las tareas activas (no rechazadas) estén finalizadas
+        $sql_check = "SELECT
                           COUNT(*) AS total,
                           SUM(CASE WHEN estado = 'finalizada' THEN 1 ELSE 0 END) AS finalizadas
                       FROM tareas_asignadas
-                      WHERE orden_trabajo_id = ?";
+                      WHERE orden_trabajo_id = ?
+                        AND estado <> 'rechazada'";
         $stmt = $conn->prepare($sql_check);
         $stmt->bind_param("i", $orden_id);
         $stmt->execute();

@@ -25,6 +25,10 @@
             require __DIR__ . '/recurso/r_misVehiculos.php';
             break;
 
+        case 'misPresupuestos':
+            require __DIR__ . '/recurso/r_misPresupuestos.php';
+            break;
+
         case 'detallesVehiculo':
             require __DIR__ . '/recurso/r_detallesVehiculo.php';
             break;
@@ -35,6 +39,10 @@
 
         case 'buscarClientes':
             require __DIR__ . '/controlador/c_buscarClientes.php';
+            break;
+
+        case 'buscarVehiculos':
+            require __DIR__ . '/controlador/c_buscarVehiculos.php';
             break;
 
         case 'obtenerModelos':

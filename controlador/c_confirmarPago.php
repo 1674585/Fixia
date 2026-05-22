@@ -9,7 +9,7 @@
         exit;
     }
 
-    $roles_permitidos = ['ceo', 'jefe', 'recepcionista'];
+    $roles_permitidos = ['ceo', 'jefe', 'recepcionista', 'mecanico'];
     if (!in_array($_SESSION['rol'], $roles_permitidos)) {
         header("Location: index.php?action=home");
         exit;
@@ -22,16 +22,17 @@
 
     require_once __DIR__ . '/../modelo/m_facturacion.php';
 
-    $taller_id = (int)$_SESSION['taller_id'];
-    $orden_id  = isset($_POST['orden_id']) ? (int)$_POST['orden_id'] : 0;
-    $origen    = $_POST['origen'] ?? 'listado'; // 'detalle' o 'listado'
+    $taller_id   = (int)$_SESSION['taller_id'];
+    $usuario_id  = (int)$_SESSION['user_id'];
+    $orden_id    = isset($_POST['orden_id']) ? (int)$_POST['orden_id'] : 0;
+    $origen      = $_POST['origen'] ?? 'listado'; // 'detalle' o 'listado'
 
     if ($orden_id === 0) {
         header("Location: index.php?action=facturacion");
         exit;
     }
 
-    $resultado = confirmarPagoOrden($orden_id, $taller_id);
+    $resultado = confirmarPagoOrden($orden_id, $taller_id, $usuario_id);
 
     if ($resultado['exito']) {
         // Si venía del detalle, volvemos al detalle (ya mostrará estado facturado)

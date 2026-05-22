@@ -83,10 +83,10 @@
         
         <div class="botones-form">
             <button type="submit" class="boton boton-exito">
-                ✓ Registrar Vehículo
+                Registrar Vehículo
             </button>
             <a href="index.php?action=misVehiculos" class="boton boton-secundario">
-                ← Cancelar
+                Cancelar
             </a>
         </div>
     </form>

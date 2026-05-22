@@ -1,7 +1,7 @@
 <?php
     // ─────────────────────────────────────────────
-    // Controlador: Reportes y métricas de negocio
-    // Solo accesible por ceo y jefe
+    // Controlador: Reportes y métricas del taller
+    // Solo accesible por ceo y jefe.
     // ─────────────────────────────────────────────
 
     if (!isset($_SESSION['user_id']) || !isset($_SESSION['taller_id'])) {
@@ -18,69 +18,74 @@
 
     $taller_id = (int)$_SESSION['taller_id'];
 
-    // ── Filtros ────────────────────────────────────
-    // Período predefinido
+    // ── Período predefinido (preset) ───────────────
+    $presets = ['hoy','7dias','30dias','mes_actual','mes_anterior','anio_actual','personalizado'];
     $periodo = $_GET['periodo'] ?? '30dias';
+    if (!in_array($periodo, $presets, true)) $periodo = '30dias';
 
-    // Calcular fechas según período predefinido
     $hoy = date('Y-m-d');
+
     switch ($periodo) {
-        case '7dias':
-            $fecha_desde_default = date('Y-m-d', strtotime('-7 days'));
-            $fecha_hasta_default = $hoy;
+        case 'hoy':
+            $fecha_desde = $hoy;
+            $fecha_hasta = $hoy;
             break;
-        case '30dias':
-            $fecha_desde_default = date('Y-m-d', strtotime('-30 days'));
-            $fecha_hasta_default = $hoy;
+        case '7dias':
+            $fecha_desde = date('Y-m-d', strtotime('-6 days'));
+            $fecha_hasta = $hoy;
             break;
         case 'mes_actual':
-            $fecha_desde_default = date('Y-m-01');
-            $fecha_hasta_default = $hoy;
+            $fecha_desde = date('Y-m-01');
+            $fecha_hasta = $hoy;
             break;
         case 'mes_anterior':
-            $fecha_desde_default = date('Y-m-01', strtotime('first day of last month'));
-            $fecha_hasta_default = date('Y-m-t',  strtotime('last day of last month'));
+            $fecha_desde = date('Y-m-01', strtotime('first day of last month'));
+            $fecha_hasta = date('Y-m-t',  strtotime('last day of last month'));
             break;
         case 'anio_actual':
-            $fecha_desde_default = date('Y-01-01');
-            $fecha_hasta_default = $hoy;
+            $fecha_desde = date('Y-01-01');
+            $fecha_hasta = $hoy;
             break;
         case 'personalizado':
-            $fecha_desde_default = '';
-            $fecha_hasta_default = '';
+            $fecha_desde = $_GET['desde'] ?? '';
+            $fecha_hasta = $_GET['hasta'] ?? '';
             break;
+        case '30dias':
         default:
-            $fecha_desde_default = date('Y-m-d', strtotime('-30 days'));
-            $fecha_hasta_default = $hoy;
+            $fecha_desde = date('Y-m-d', strtotime('-29 days'));
+            $fecha_hasta = $hoy;
     }
 
-    // Si es personalizado, usar los campos manuales; si no, usar los del período
-    $fecha_desde = $periodo === 'personalizado'
-        ? ($_GET['desde'] ?? '')
-        : $fecha_desde_default;
-    $fecha_hasta = $periodo === 'personalizado'
-        ? ($_GET['hasta'] ?? '')
-        : $fecha_hasta_default;
+    // Validar formato Y-m-d
+    foreach (['fecha_desde', 'fecha_hasta'] as $v) {
+        if ($$v !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $$v)) {
+            $$v = '';
+        }
+    }
 
-    // Agrupación para gráficos temporales
+    // Si desde > hasta los intercambiamos (defensa contra input incoherente)
+    if ($fecha_desde && $fecha_hasta && $fecha_desde > $fecha_hasta) {
+        [$fecha_desde, $fecha_hasta] = [$fecha_hasta, $fecha_desde];
+    }
+
+    // ── Agrupación temporal de los gráficos ────────
     $agrupacion = $_GET['agrupacion'] ?? 'dia';
-    if (!in_array($agrupacion, ['dia', 'semana', 'mes'])) {
+    if (!in_array($agrupacion, ['dia', 'semana', 'mes'], true)) {
         $agrupacion = 'dia';
     }
 
-    // Filtro por mecánico (para sección de equipo)
-    $mecanico_filtro = isset($_GET['mecanico_id']) ? (int)$_GET['mecanico_id'] : 0;
-
     // ── Cargar todas las métricas ──────────────────
-    $ordenes_por_estado   = reporteOrdenesPorEstado($taller_id, $fecha_desde, $fecha_hasta);
-    $tiempo_medio         = reporteTiempoMedioReparacion($taller_id, $fecha_desde, $fecha_hasta);
-    $throughput           = reporteThroughput($taller_id, $fecha_desde, $fecha_hasta, $agrupacion);
-    $financiero           = reporteFinanciero($taller_id, $fecha_desde, $fecha_hasta);
-    $ingresos_periodo     = reporteIngresosPorPeriodo($taller_id, $fecha_desde, $fecha_hasta, $agrupacion);
-    $productividad        = reporteProductividadMecanicos($taller_id, $fecha_desde, $fecha_hasta);
-    $stock_critico        = reporteStockCritico($taller_id);
-    $valor_stock          = reporteValorStock($taller_id);
-    $productos_mas_usados = reporteProductosMasUsados($taller_id, $fecha_desde, $fecha_hasta);
+    $financiero        = r_kpis_financieros($taller_id, $fecha_desde, $fecha_hasta);
+    $ingresos_periodo  = r_ingresos_por_periodo($taller_id, $fecha_desde, $fecha_hasta, $agrupacion);
+    $ordenes_estado    = r_ordenes_por_estado($taller_id, $fecha_desde, $fecha_hasta);
+    $tiempo_medio      = r_tiempo_medio($taller_id, $fecha_desde, $fecha_hasta);
+    $precision_ia      = r_precision_ia($taller_id, $fecha_desde, $fecha_hasta);
+    $presupuestos      = r_aprobacion_presupuestos($taller_id, $fecha_desde, $fecha_hasta);
+    $productividad     = r_productividad_mecanicos($taller_id, $fecha_desde, $fecha_hasta);
+    $stock_critico     = r_stock_critico($taller_id);
+    $valor_stock       = r_valor_stock($taller_id);
+    $top_materiales    = r_top_materiales($taller_id, $fecha_desde, $fecha_hasta);
+    $backlog           = r_backlog($taller_id);
 
     require_once __DIR__ . '/../vista/v_reportes.php';
 ?>

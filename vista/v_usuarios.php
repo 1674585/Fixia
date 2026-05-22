@@ -23,16 +23,16 @@ $roles_config = [
             <p class="usr-subtitulo">Usuarios del taller · <?= array_sum($resumen) ?> en total</p>
         </div>
         <a href="index.php?action=usuariosFormulario" class="btn btn-primary">
-            + Nuevo usuario
+            Nuevo usuario
         </a>
     </div>
 
     <!-- Alertas -->
     <?php if ($mensaje_ok): ?>
-        <div class="alerta alerta-exito">✓ <?= htmlspecialchars($mensaje_ok) ?></div>
+        <div class="alerta alerta-exito"><?= htmlspecialchars($mensaje_ok) ?></div>
     <?php endif; ?>
     <?php if ($mensaje_err): ?>
-        <div class="alerta alerta-error">✗ <?= htmlspecialchars($mensaje_err) ?></div>
+        <div class="alerta alerta-error"><?= htmlspecialchars($mensaje_err) ?></div>
     <?php endif; ?>
 
     <!-- Resumen por rol -->
@@ -66,7 +66,7 @@ $roles_config = [
             <button type="submit" class="btn btn-filtrar">Buscar</button>
             <?php if ($filtros['busqueda']): ?>
                 <a href="index.php?action=usuarios&rol=<?= htmlspecialchars($filtros['rol']) ?>"
-                   class="btn btn-limpiar">✕ Limpiar</a>
+                   class="btn btn-limpiar">Limpiar</a>
             <?php endif; ?>
         </div>
     </form>
@@ -74,7 +74,6 @@ $roles_config = [
     <!-- Tabla -->
     <?php if (empty($usuarios)): ?>
         <div class="usr-vacio">
-            <div class="usr-vacio-icono">👥</div>
             <p>No se encontraron usuarios<?= $filtros['busqueda'] ? ' para "' . htmlspecialchars($filtros['busqueda']) . '"' : '' ?>.</p>
         </div>
     <?php else: ?>
@@ -119,13 +118,13 @@ $roles_config = [
                             <td class="col-acciones acciones">
                                 <!-- Editar -->
                                 <a href="index.php?action=usuariosFormulario&id=<?= $u['id'] ?>"
-                                   class="btn btn-sm btn-editar">✏ Editar</a>
+                                   class="btn btn-sm btn-editar">Editar</a>
 
                                 <!-- Cambiar contraseña -->
                                 <button type="button"
                                         class="btn btn-sm btn-password"
                                         onclick="abrirModalPassword(<?= $u['id'] ?>, '<?= htmlspecialchars(addslashes($u['nombre_completo'])) ?>')">
-                                    🔑 Contraseña
+                                    Contraseña
                                 </button>
 
                                 <!-- Eliminar (no se puede eliminar a uno mismo) -->
@@ -133,7 +132,7 @@ $roles_config = [
                                     <button type="button"
                                             class="btn btn-sm btn-eliminar"
                                             onclick="abrirModalEliminar(<?= $u['id'] ?>, '<?= htmlspecialchars(addslashes($u['nombre_completo'])) ?>', <?= (int)$u['tareas_activas'] ?>)">
-                                        🗑 Eliminar
+                                        Eliminar
                                     </button>
                                 <?php endif; ?>
                             </td>
@@ -150,7 +149,6 @@ $roles_config = [
 <!-- ══ Modal: Eliminar usuario ══════════════════════════════════ -->
 <div id="modalEliminar" class="modal-overlay" style="display:none">
     <div class="modal-caja">
-        <div class="modal-icono">🗑</div>
         <h3 class="modal-titulo">Eliminar usuario</h3>
         <p class="modal-texto">
             ¿Eliminar a <strong id="modalElimNombre"></strong>?
@@ -170,7 +168,6 @@ $roles_config = [
 <!-- ══ Modal: Cambiar contraseña ════════════════════════════════ -->
 <div id="modalPassword" class="modal-overlay" style="display:none">
     <div class="modal-caja">
-        <div class="modal-icono">🔑</div>
         <h3 class="modal-titulo">Cambiar contraseña</h3>
         <p class="modal-texto">
             Usuario: <strong id="modalPassNombre"></strong>
@@ -210,7 +207,7 @@ $roles_config = [
         const btn    = document.getElementById('btnEliminarConfirmar');
 
         if (tareasActivas > 0) {
-            alerta.textContent  = '⚠ Este usuario tiene ' + tareasActivas + ' tarea(s) activa(s). No se puede eliminar hasta reasignarlas.';
+            alerta.textContent  = 'Este usuario tiene ' + tareasActivas + ' tarea(s) activa(s). No se puede eliminar hasta reasignarlas.';
             alerta.style.display = 'block';
             btn.disabled = true;
         } else {

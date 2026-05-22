@@ -16,8 +16,8 @@ $estados_orden = [
 $est = $estados_orden[$orden['estado']] ?? ['label' => $orden['estado'], 'clase' => ''];
 
 function fmtMin($min) {
-    if (!$min) return '—';
-    $h = intdiv($min, 60); $m = $min % 60;
+    if ($min === null || $min === '' || (int)$min === 0) return '—';
+    $h = intdiv((int)$min, 60); $m = (int)$min % 60;
     return $h > 0 ? "{$h}h {$m}min" : "{$m}min";
 }
 function fmtEur($n) {
@@ -26,6 +26,9 @@ function fmtEur($n) {
 function fmtFecha($d) {
     return $d ? date('d/m/Y H:i', strtotime($d)) : '—';
 }
+function fmtEurOrDash($n) {
+    return $n === null ? '—' : fmtEur($n);
+}
 ?>
 
 <div class="fd-container">
@@ -33,7 +36,7 @@ function fmtFecha($d) {
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
         <a href="index.php?action=facturacion">Facturación</a>
-        <span class="bc-sep">›</span>
+        <span class="bc-sep">/</span>
         <span>Orden #<?= (int)$orden['id'] ?></span>
     </nav>
 
@@ -102,6 +105,35 @@ function fmtFecha($d) {
         <?php endif; ?>
     </div>
 
+    <!-- ── Resumen presupuesto vs real ── -->
+    <?php if ($factura['total_estimado'] !== null): ?>
+        <?php
+            $dif = $factura['diferencia_estimado'];
+            $dif_clase = $dif === null ? '' : ($dif > 0 ? 'fd-dif-alza' : ($dif < 0 ? 'fd-dif-baja' : ''));
+            $dif_signo = $dif !== null && $dif > 0 ? '+' : '';
+        ?>
+        <div class="fd-resumen-presupuesto">
+            <div class="fd-resumen-bloque">
+                <span class="fd-resumen-label">Presupuesto IA</span>
+                <strong><?= fmtEur($factura['total_estimado']) ?></strong>
+                <?php if ($orden['tiempo_estimado_ia']): ?>
+                    <small><?= fmtMin($orden['tiempo_estimado_ia']) ?> est.</small>
+                <?php endif; ?>
+            </div>
+            <div class="fd-resumen-bloque">
+                <span class="fd-resumen-label">Total real</span>
+                <strong><?= fmtEur($factura['total_factura']) ?></strong>
+            </div>
+            <div class="fd-resumen-bloque <?= $dif_clase ?>">
+                <span class="fd-resumen-label">Diferencia</span>
+                <strong><?= $dif_signo . fmtEur($dif) ?></strong>
+                <?php if ($factura['total_estimado'] > 0): ?>
+                    <small>(<?= $dif_signo . number_format(($dif / $factura['total_estimado']) * 100, 1, ',', '.') ?>%)</small>
+                <?php endif; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <!-- ── Desglose de tareas ── -->
     <h3 class="fd-seccion-titulo">Desglose de trabajos</h3>
 
@@ -132,7 +164,7 @@ function fmtFecha($d) {
                                 Mano de obra — <?= fmtMin($tarea['duracion_real_minutos']) ?>
                                 <?php if ($tarea['hora_inicio'] && $tarea['hora_fin']): ?>
                                     <span class="fd-horas-detalle">
-                                        (<?= fmtFecha($tarea['hora_inicio']) ?> → <?= fmtFecha($tarea['hora_fin']) ?>)
+                                        (de <?= fmtFecha($tarea['hora_inicio']) ?> a <?= fmtFecha($tarea['hora_fin']) ?>)
                                     </span>
                                 <?php endif; ?>
                             </td>
@@ -167,6 +199,51 @@ function fmtFecha($d) {
                     <span class="fd-subtotal-tarea">Subtotal tarea: <strong><?= fmtEur($tarea['coste_total_tarea']) ?></strong></span>
                 </div>
 
+                <!-- Comparativa estimado vs real de la tarea -->
+                <?php if ($tarea['precio_estimado'] !== null || $tarea['tiempo_estimado_minutos'] !== null): ?>
+                    <?php
+                        $real_total   = (float)$tarea['coste_total_tarea'];
+                        $est_total    = $tarea['precio_estimado'] !== null ? (float)$tarea['precio_estimado'] : null;
+                        $dif_t        = $est_total !== null ? round($real_total - $est_total, 2) : null;
+                        $dif_t_clase  = $dif_t === null ? '' : ($dif_t > 0 ? 'fd-dif-alza' : ($dif_t < 0 ? 'fd-dif-baja' : ''));
+                        $dif_t_signo  = $dif_t !== null && $dif_t > 0 ? '+' : '';
+
+                        $real_min     = $tarea['duracion_real_minutos'] !== null ? (int)$tarea['duracion_real_minutos'] : null;
+                        $est_min      = $tarea['tiempo_estimado_minutos'] !== null ? (int)$tarea['tiempo_estimado_minutos'] : null;
+                        $dif_min      = ($real_min !== null && $est_min !== null) ? ($real_min - $est_min) : null;
+                    ?>
+                    <table class="fd-comparativa">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="col-num">Estimado IA</th>
+                                <th class="col-num">Real</th>
+                                <th class="col-num">Diferencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tiempo</td>
+                                <td class="col-num"><?= fmtMin($est_min) ?></td>
+                                <td class="col-num"><?= fmtMin($real_min) ?></td>
+                                <td class="col-num <?= $dif_min === null ? '' : ($dif_min > 0 ? 'fd-dif-alza' : ($dif_min < 0 ? 'fd-dif-baja' : '')) ?>">
+                                    <?php if ($dif_min === null): ?>—
+                                    <?php else: ?><?= ($dif_min > 0 ? '+' : '') . fmtMin(abs($dif_min)) ?><?php endif; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Coste</td>
+                                <td class="col-num"><?= fmtEurOrDash($est_total) ?></td>
+                                <td class="col-num"><?= fmtEur($real_total) ?></td>
+                                <td class="col-num <?= $dif_t_clase ?>">
+                                    <?php if ($dif_t === null): ?>—
+                                    <?php else: ?><?= $dif_t_signo . fmtEur($dif_t) ?><?php endif; ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+
             </div>
         <?php endforeach; ?>
 
@@ -174,6 +251,12 @@ function fmtFecha($d) {
 
     <!-- ── Totales finales ── -->
     <div class="fd-totales">
+        <?php if ($factura['total_estimado'] !== null): ?>
+            <div class="fd-total-fila fd-total-estimado">
+                <span>Presupuesto IA inicial</span>
+                <span><?= fmtEur($factura['total_estimado']) ?></span>
+            </div>
+        <?php endif; ?>
         <div class="fd-total-fila">
             <span>Total mano de obra</span>
             <span><?= fmtEur($factura['coste_total_mano_obra']) ?></span>
@@ -183,23 +266,34 @@ function fmtFecha($d) {
             <span><?= fmtEur($factura['coste_total_materiales']) ?></span>
         </div>
         <div class="fd-total-fila fd-total-final">
-            <span>TOTAL FACTURA</span>
+            <span>TOTAL A PAGAR</span>
             <strong><?= fmtEur($factura['total_factura']) ?></strong>
         </div>
+        <?php if ($orden['estado'] === 'facturado' && !empty($orden['nombre_facturador'])): ?>
+            <div class="fd-total-fila fd-total-auditoria">
+                <span>Facturado por</span>
+                <span>
+                    <?= htmlspecialchars($orden['nombre_facturador']) ?>
+                    <?php if ($orden['facturado_en']): ?>
+                        · <?= fmtFecha($orden['facturado_en']) ?>
+                    <?php endif; ?>
+                </span>
+            </div>
+        <?php endif; ?>
     </div>
 
     <!-- ── Acciones ── -->
     <div class="fd-acciones">
-        <a href="index.php?action=facturacion" class="btn btn-volver">← Volver</a>
+        <a href="index.php?action=facturacion" class="btn btn-volver">Volver</a>
 
         <?php if ($orden['estado'] === 'listo'): ?>
             <button type="button"
                     class="btn btn-cobrar"
                     onclick="document.getElementById('modalConfirmar').style.display='flex'">
-                ✓ Confirmar pago — <?= fmtEur($factura['total_factura']) ?>
+                Confirmar pago — <?= fmtEur($factura['total_factura']) ?>
             </button>
         <?php else: ?>
-            <span class="badge badge-facturado">✓ Pagada y facturada</span>
+            <span class="badge badge-facturado">Pagada y facturada</span>
         <?php endif; ?>
     </div>
 
@@ -208,7 +302,6 @@ function fmtFecha($d) {
 <!-- ── Modal de confirmación de pago ── -->
 <div id="modalConfirmar" class="modal-overlay" style="display:none">
     <div class="modal-caja">
-        <div class="modal-icono">💳</div>
         <h3 class="modal-titulo">Confirmar pago</h3>
         <p class="modal-texto">
             Vas a marcar la orden <strong>#<?= (int)$orden['id'] ?></strong> del cliente
@@ -227,7 +320,7 @@ function fmtFecha($d) {
                     Cancelar
                 </button>
                 <button type="submit" class="btn btn-confirmar-pago">
-                    ✓ Sí, confirmar pago
+                    Sí, confirmar pago
                 </button>
             </div>
         </form>

@@ -1,7 +1,10 @@
 <?php
     // ─────────────────────────────────────────────
-    // Controlador: Tareas de una orden asignadas
-    // al mecánico en sesión
+    // Controlador: Tareas de una orden de trabajo
+    //   · ceo / jefe → ven TODAS las tareas (vista supervisor)
+    //   · mecánico / recepcionista → solo las suyas
+    // Validación: la pantalla rechaza el acceso si un mecánico
+    // intenta ver tareas de otra persona.
     // ─────────────────────────────────────────────
 
     if (!isset($_SESSION['user_id']) || !isset($_SESSION['taller_id'])) {
@@ -17,13 +20,17 @@
 
     require_once __DIR__ . '/../modelo/m_misTareas.php';
 
-    $mecanico_id = (int)$_SESSION['user_id'];
-    $taller_id   = (int)$_SESSION['taller_id'];
-    $orden_id    = isset($_GET['orden_id']) ? (int)$_GET['orden_id'] : 0;
-    $error_orden = null;
+    $user_id      = (int)$_SESSION['user_id'];
+    $taller_id    = (int)$_SESSION['taller_id'];
+    $rol          = $_SESSION['rol'];
+    $orden_id     = isset($_GET['orden_id']) ? (int)$_GET['orden_id'] : 0;
+    $error_orden  = null;
+
+    // ¿El usuario tiene permiso de supervisor para ver tareas ajenas?
+    $es_supervisor = in_array($rol, ['ceo', 'jefe']);
 
     if ($orden_id === 0) {
-        header("Location: index.php?action=misTareas");
+        header("Location: index.php?action=" . ($es_supervisor ? 'ordenesTrabajo' : 'misTareas'));
         exit;
     }
 
@@ -38,10 +45,21 @@
         }
     }
 
-    $tareas = obtenerTareasDeOrden($orden_id, $mecanico_id, $taller_id);
+    // Carga de tareas según permisos
+    if ($es_supervisor) {
+        $tareas = obtenerTareasOrdenCompleta($orden_id, $taller_id);
+    } else {
+        // Mecánico / recepcionista: solo sus propias tareas
+        $tareas = obtenerTareasDeOrden($orden_id, $user_id, $taller_id);
+    }
 
-    // Si no hay tareas de este mecánico en esta orden, redirigir
     if (empty($tareas)) {
+        // Supervisor: orden inexistente o sin tareas
+        if ($es_supervisor) {
+            header("Location: index.php?action=ordenesTrabajo");
+            exit;
+        }
+        // Mecánico intentando ver tareas que no son suyas
         header("Location: index.php?action=misTareas");
         exit;
     }

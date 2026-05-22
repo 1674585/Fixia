@@ -8,7 +8,7 @@
         exit;
     }
 
-    $roles_permitidos = ['ceo', 'jefe', 'recepcionista'];
+    $roles_permitidos = ['ceo', 'jefe', 'recepcionista', 'mecanico'];
     if (!in_array($_SESSION['rol'], $roles_permitidos)) {
         header("Location: index.php?action=home");
         exit;
