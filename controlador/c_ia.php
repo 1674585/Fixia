@@ -22,6 +22,10 @@
     $carpeta_csv      = __DIR__ . '/../csv';
     $carpeta_modelos  = __DIR__ . '/../modelos_ml';
 
+    // El jefe solo puede operar sobre su propio taller; el ceo opera sobre todos.
+    $es_jefe          = $_SESSION['rol'] === 'jefe';
+    $taller_propio_id = (int)$_SESSION['taller_id'];
+
     // ── Petición AJAX: regenerar CSVs ─────────────────
     if ($_SERVER['REQUEST_METHOD'] === 'POST'
         && ($_POST['accion'] ?? '') === 'regenerar_csvs') {
@@ -33,9 +37,17 @@
                 throw new Exception("La carpeta csv/ no existe.");
             }
 
-            $talleres = obtenerTalleresConTareasFacturadas();
-            $resumen  = [];
+            if ($es_jefe) {
+                // El jefe solo regenera el CSV de su taller. No toca general.csv.
+                $talleres = array_values(array_filter(
+                    obtenerTalleresConTareasFacturadas(),
+                    fn($t) => (int)$t['id'] === $taller_propio_id
+                ));
+            } else {
+                $talleres = obtenerTalleresConTareasFacturadas();
+            }
 
+            $resumen = [];
             foreach ($talleres as $taller) {
                 $n = regenerarCsvTaller((int)$taller['id'], $carpeta_csv);
                 $resumen[] = [
@@ -46,11 +58,15 @@
                 ];
             }
 
-            $n_general = regenerarCsvGeneral($carpeta_csv);
+            $general = null;
+            if (!$es_jefe) {
+                $n_general = regenerarCsvGeneral($carpeta_csv);
+                $general   = ['archivo' => 'general.csv', 'filas' => $n_general];
+            }
 
             echo json_encode([
                 'ok'       => true,
-                'general'  => ['archivo' => 'general.csv', 'filas' => $n_general],
+                'general'  => $general,
                 'talleres' => $resumen,
             ]);
             exit;
@@ -68,7 +84,9 @@
 
         header('Content-Type: application/json');
 
-        $resp = mlClientPost('/train', [], ML_API_TRAIN_TIMEOUT);
+        // El jefe solo entrena el modelo de su taller; el ceo entrena todos.
+        $payload = $es_jefe ? ['taller_id' => $taller_propio_id] : [];
+        $resp    = mlClientPost('/train', $payload, ML_API_TRAIN_TIMEOUT);
 
         if ($resp['error'] !== null) {
             http_response_code(503);
@@ -97,6 +115,25 @@
     $talleres_disponibles = obtenerTalleresConTareasFacturadas();
     $estado_csvs          = estadoCsvs($carpeta_csv);
     $estado_modelos       = estadoModelos($carpeta_modelos);
+
+    if ($es_jefe) {
+        // El jefe solo ve datos relativos a su taller.
+        $archivo_csv_propio    = "taller_{$taller_propio_id}.csv";
+        $archivo_modelo_propio = "taller_{$taller_propio_id}.pkl";
+
+        $talleres_disponibles = array_values(array_filter(
+            $talleres_disponibles,
+            fn($t) => (int)$t['id'] === $taller_propio_id
+        ));
+        $estado_csvs = array_values(array_filter(
+            $estado_csvs,
+            fn($a) => $a['archivo'] === $archivo_csv_propio
+        ));
+        $estado_modelos = array_values(array_filter(
+            $estado_modelos,
+            fn($m) => $m['archivo'] === $archivo_modelo_propio
+        ));
+    }
 
     require_once __DIR__ . '/../vista/v_ia.php';
 ?>

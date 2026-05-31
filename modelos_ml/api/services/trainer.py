@@ -183,6 +183,71 @@ class TrainerService:
             "mensajes": mensajes,
         }
 
+    def entrenar_taller(self, taller_id: int) -> Dict:
+        """Entrena únicamente el modelo del taller indicado (no toca general)."""
+        if not self._csv_dir.is_dir():
+            raise FileNotFoundError(f"No existe la carpeta CSV: {self._csv_dir}")
+
+        self._models_dir.mkdir(parents=True, exist_ok=True)
+
+        etiqueta = f"taller_{taller_id}"
+        csv_path = self._csv_dir / f"{etiqueta}.csv"
+
+        detalle: List[Dict] = []
+        mensajes: List[str] = []
+        entrenados_taller = 0
+        omitidos_taller = 0
+
+        if not csv_path.is_file():
+            mensajes.append(f"[{etiqueta}] no se encontró {csv_path.name}")
+            return {
+                "ok": True,
+                "talleres_entrenados": 0,
+                "talleres_omitidos": 0,
+                "general_entrenado": False,
+                "detalle": detalle,
+                "mensajes": mensajes,
+            }
+
+        try:
+            df = _cargar_csv(csv_path)
+        except Exception as e:
+            mensajes.append(f"[{etiqueta}] error leyendo CSV: {e}")
+            return {
+                "ok": True,
+                "talleres_entrenados": 0,
+                "talleres_omitidos": 0,
+                "general_entrenado": False,
+                "detalle": detalle,
+                "mensajes": mensajes,
+            }
+
+        if len(df) < MIN_FILAS:
+            mensajes.append(
+                f"[{etiqueta}] filas={len(df)} < MIN_FILAS={MIN_FILAS}, "
+                "se omite (usará el general)"
+            )
+            omitidos_taller = 1
+        else:
+            salida = self._models_dir / f"{etiqueta}.pkl"
+            filas, r2 = _entrenar_y_guardar(df, salida, etiqueta)
+            detalle.append({
+                "etiqueta": etiqueta,
+                "filas": filas,
+                "r2_train": r2,
+                "archivo": salida.name,
+            })
+            entrenados_taller = 1
+
+        return {
+            "ok": True,
+            "talleres_entrenados": entrenados_taller,
+            "talleres_omitidos": omitidos_taller,
+            "general_entrenado": False,
+            "detalle": detalle,
+            "mensajes": mensajes,
+        }
+
 
 _trainer_singleton: Optional[TrainerService] = None
 

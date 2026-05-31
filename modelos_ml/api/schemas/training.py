@@ -7,6 +7,14 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 
 
+class TrainingRequest(BaseModel):
+    taller_id: Optional[int] = Field(
+        default=None,
+        description="Si se indica, solo se entrena el modelo de ese taller (no toca general ni otros talleres).",
+        ge=1,
+    )
+
+
 class TrainedModelInfo(BaseModel):
     etiqueta: str = Field(..., description="taller_<id> o 'general'")
     filas: int

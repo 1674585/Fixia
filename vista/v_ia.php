@@ -125,8 +125,12 @@ document.getElementById('btn-regenerar-csvs').addEventListener('click', () => {
                 return;
             }
             const totalTalleres = data.talleres.length;
-            const filasGeneral  = data.general.filas;
-            estado.textContent = `OK — general.csv: ${filasGeneral} filas · ${totalTalleres} taller(es) regenerado(s). Recargando…`;
+            const partes = [];
+            if (data.general) {
+                partes.push(`general.csv: ${data.general.filas} filas`);
+            }
+            partes.push(`${totalTalleres} taller(es) regenerado(s)`);
+            estado.textContent = `OK — ${partes.join(' · ')}. Recargando…`;
             estado.className   = 'ia-estado-accion ia-estado-ok';
             setTimeout(() => location.reload(), 1200);
         })
