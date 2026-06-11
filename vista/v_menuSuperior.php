@@ -37,6 +37,7 @@
                     echo '<a href="index.php?action=reportes">Reportes</a>';
                     echo '<a href="index.php?action=stock">Stock</a>';
                     echo '<a href="index.php?action=misTareas">Mis Tareas</a>';
+                    echo '<a href="index.php?action=facturacion">Facturación</a>';
                     echo '<a href="index.php?action=usuarios">Gestionar Usuarios</a>';
                     echo '<a href="index.php?action=crearOrden">Crear Orden</a>';
                     echo '<a href="index.php?action=ia">IA</a>';

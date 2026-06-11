@@ -1,0 +1,592 @@
+tarea_id,orden_id,taller_id,tarifa_hora_base,catalogo_tarea_id,nombre_tarea,minutos_estimados_base,subgrupo_id,subgrupo_nombre,tipo_reparacion_id,tipo_reparacion_nombre,marca,modelo,anio,kilometraje,duracion_real_minutos,horas_reales,coste_mano_obra,coste_repuestos,coste_total
+10001,2001,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Peugeot,2008,2020,255570,36,0.6,33,0,33
+10002,2001,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Peugeot,2008,2020,255570,17,0.2833,15.58,22.1,37.68
+10003,2002,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Fiat,500,2020,56313,82,1.3667,75.17,191.09,266.26
+10004,2002,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Fiat,500,2020,56313,134,2.2333,122.83,60.38,183.21
+10005,2003,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Renault,Megane,2023,101574,53,0.8833,48.58,0,48.58
+10006,2004,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Volkswagen,Passat,2008,135646,33,0.55,30.25,36.92,67.17
+10007,2004,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Volkswagen,Passat,2008,135646,30,0.5,27.5,56.52,84.02
+10008,2005,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Toyota,C-HR,2011,41522,137,2.2833,125.58,64.29,189.87
+10009,2006,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Seat,Ateca,2010,139782,15,0.25,13.75,17.62,31.37
+10010,2007,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Volkswagen,T-Roc,2014,154041,81,1.35,74.25,0,74.25
+10011,2007,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Volkswagen,T-Roc,2014,154041,60,1,55,44.04,99.04
+10012,2007,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Volkswagen,T-Roc,2014,154041,34,0.5667,31.17,50.87,82.04
+10013,2007,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Volkswagen,T-Roc,2014,154041,58,0.9667,53.17,173.56,226.73
+10014,2008,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Peugeot,208,2015,56291,84,1.4,77,52.29,129.29
+10015,2008,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Peugeot,208,2015,56291,80,1.3333,73.33,188.22,261.55
+10016,2009,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Renault,Captur,2011,71117,24,0.4,22,17.39,39.39
+10017,2010,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Kia,Ceed,2024,271131,19,0.3167,17.42,16.61,34.03
+10018,2011,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Ford,Focus,2022,173606,228,3.8,209,431.2,640.2
+10019,2011,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Ford,Focus,2022,173606,67,1.1167,61.42,66.86,128.28
+10020,2011,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Ford,Focus,2022,173606,38,0.6333,34.83,37.73,72.56
+10021,2012,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Hyundai,i30,2015,100669,127,2.1167,116.42,52.36,168.78
+10022,2012,4,55.00,209,"Cambio de bujías",45,9,"Cambio de bujías",2,Motor,Hyundai,i30,2015,100669,56,0.9333,51.33,44.04,95.37
+10023,2012,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Hyundai,i30,2015,100669,97,1.6167,88.92,75.7,164.62
+10024,2013,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Nissan,Micra,2011,46778,122,2.0333,111.83,53.27,165.1
+10025,2013,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Nissan,Micra,2011,46778,63,1.05,57.75,0,57.75
+10026,2014,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Seat,Ibiza,2012,98876,118,1.9667,108.17,194.55,302.72
+10027,2015,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Seat,Ateca,2010,139782,32,0.5333,29.33,56.16,85.49
+10028,2015,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Seat,Ateca,2010,139782,123,2.05,112.75,388.94,501.69
+10029,2016,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Seat,Ibiza,2012,98876,278,4.6333,254.83,394.82,649.65
+10030,2016,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Seat,Ibiza,2012,98876,70,1.1667,64.17,73.7,137.87
+10031,2017,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Seat,Ateca,2010,139782,318,5.3,291.5,61.66,353.16
+10032,2017,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Seat,Ateca,2010,139782,263,4.3833,241.08,268.65,509.73
+10033,2017,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Seat,Ateca,2010,139782,164,2.7333,150.33,338.51,488.84
+10034,2017,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Seat,Ateca,2010,139782,78,1.3,71.5,213.57,285.07
+10035,2018,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Volkswagen,T-Roc,2014,154041,33,0.55,30.25,0,30.25
+10036,2018,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Volkswagen,T-Roc,2014,154041,48,0.8,44,24.79,68.79
+10037,2018,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Volkswagen,T-Roc,2014,154041,58,0.9667,53.17,793.68,846.85
+10038,2019,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Peugeot,2008,2021,114829,91,1.5167,83.42,81.3,164.72
+10039,2020,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Seat,Toledo,2023,278638,74,1.2333,67.83,77.16,144.99
+10040,2020,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Seat,Toledo,2023,278638,346,5.7667,317.17,319.57,636.74
+10041,2021,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Nissan,Note,2021,224400,162,2.7,148.5,382.99,531.49
+10042,2021,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Nissan,Note,2021,224400,19,0.3167,17.42,12.99,30.41
+10043,2021,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Nissan,Note,2021,224400,148,2.4667,135.67,216.68,352.35
+10044,2022,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Renault,Captur,2011,71117,33,0.55,30.25,0,30.25
+10045,2022,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Renault,Captur,2011,71117,281,4.6833,257.58,414.92,672.5
+10046,2023,4,55.00,236,"Reparación de evaporador / condensador",240,36,"Reparación de evaporador / condensador",6,"Aire acondicionado / climatización",Nissan,Micra,2011,46778,284,4.7333,260.33,135.75,396.08
+10047,2023,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Nissan,Micra,2011,46778,26,0.4333,23.83,52.55,76.38
+10048,2024,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Hyundai,i30,2015,100669,170,2.8333,155.83,188.74,344.57
+10049,2024,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Hyundai,i30,2015,100669,204,3.4,187,240.81,427.81
+10050,2025,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Volkswagen,Passat,2008,135646,52,0.8667,47.67,73.78,121.45
+10051,2025,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Volkswagen,Passat,2008,135646,114,1.9,104.5,197.22,301.72
+10052,2025,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Volkswagen,Passat,2008,135646,67,1.1167,61.42,102.89,164.31
+10053,2026,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Nissan,Micra,2009,134484,168,2.8,154,106.54,260.54
+10054,2026,4,55.00,236,"Reparación de evaporador / condensador",240,36,"Reparación de evaporador / condensador",6,"Aire acondicionado / climatización",Nissan,Micra,2009,134484,211,3.5167,193.42,151.23,344.65
+10055,2027,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Nissan,Micra,2011,46778,14,0.2333,12.83,20.45,33.28
+10056,2027,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Nissan,Micra,2011,46778,123,2.05,112.75,194.3,307.05
+10057,2028,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Renault,Captur,2022,180767,27,0.45,24.75,52.68,77.43
+10058,2028,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Renault,Captur,2022,180767,92,1.5333,84.33,75.98,160.31
+10059,2029,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Seat,Ibiza,2012,98876,115,1.9167,105.42,301.45,406.87
+10060,2029,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Seat,Ibiza,2012,98876,48,0.8,44,0,44
+10061,2029,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Seat,Ibiza,2012,98876,52,0.8667,47.67,45.73,93.4
+10062,2029,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Seat,Ibiza,2012,98876,15,0.25,13.75,14.89,28.64
+10063,2030,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Peugeot,3008,2009,135087,24,0.4,22,17.4,39.4
+10064,2030,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Peugeot,3008,2009,135087,37,0.6167,33.92,0,33.92
+10065,2031,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Hyundai,i30,2015,100669,541,9.0167,495.92,765.87,1261.79
+10066,2031,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Hyundai,i30,2015,100669,175,2.9167,160.42,49.92,210.34
+10067,2031,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Hyundai,i30,2015,100669,186,3.1,170.5,400.92,571.42
+10068,2032,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Peugeot,5008,2022,88495,18,0.3,16.5,22.82,39.32
+10069,2033,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Hyundai,i20,2021,180868,202,3.3667,185.17,216.69,401.86
+10070,2034,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Fiat,Tipo,2008,75058,33,0.55,30.25,18.96,49.21
+10071,2034,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Fiat,Tipo,2008,75058,14,0.2333,12.83,119.7,132.53
+10072,2034,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Fiat,Tipo,2008,75058,92,1.5333,84.33,220.36,304.69
+10073,2035,4,55.00,226,"Cambio de barras estabilizadoras",120,26,"Cambio de barras estabilizadoras",4,"Suspensión / Dirección",Seat,Ibiza,2012,98876,129,2.15,118.25,69.11,187.36
+10074,2035,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Seat,Ibiza,2012,98876,185,3.0833,169.58,93.59,263.17
+10075,2035,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Seat,Ibiza,2012,98876,48,0.8,44,777.12,821.12
+10076,2036,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Volkswagen,T-Roc,2010,138314,115,1.9167,105.42,172.62,278.04
+10077,2037,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Volkswagen,Golf,2020,65707,126,2.1,115.5,60.45,175.95
+10078,2038,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Volkswagen,T-Roc,2014,154041,43,0.7167,39.42,0,39.42
+10079,2039,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Nissan,Juke,2017,224186,53,0.8833,48.58,47.53,96.11
+10080,2040,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Ford,Focus,2022,173606,24,0.4,22,32.78,54.78
+10081,2040,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Ford,Focus,2022,173606,279,4.65,255.75,87.25,343
+10082,2040,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Ford,Focus,2022,173606,40,0.6667,36.67,9.39,46.06
+10083,2041,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Nissan,Note,2021,224400,68,1.1333,62.33,76.38,138.71
+10084,2042,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Opel,Astra,2022,16701,31,0.5167,28.42,58.36,86.78
+10085,2042,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Opel,Astra,2022,16701,46,0.7667,42.17,0,42.17
+10086,2042,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Opel,Astra,2022,16701,52,0.8667,47.67,522.04,569.71
+10087,2043,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Renault,Kadjar,2023,267370,18,0.3,16.5,23.46,39.96
+10088,2043,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Renault,Kadjar,2023,267370,239,3.9833,219.08,267.19,486.27
+10089,2044,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Nissan,Micra,2009,134484,27,0.45,24.75,20.81,45.56
+10090,2045,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Peugeot,2008,2021,114829,12,0.2,11,21.6,32.6
+10091,2045,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Peugeot,2008,2021,114829,78,1.3,71.5,74.5,146
+10092,2046,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Renault,Captur,2022,180767,162,2.7,148.5,215.64,364.14
+10093,2047,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Nissan,Micra,2011,46778,68,1.1333,62.33,0,62.33
+10094,2048,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Fiat,Tipo,2008,75058,452,7.5333,414.33,694.57,1108.9
+10095,2048,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Fiat,Tipo,2008,75058,76,1.2667,69.67,187.72,257.39
+10096,2049,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Renault,Kadjar,2023,267370,84,1.4,77,65.31,142.31
+10097,2050,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Seat,Ibiza,2012,98876,41,0.6833,37.58,17.48,55.06
+10098,2050,4,55.00,209,"Cambio de bujías",45,9,"Cambio de bujías",2,Motor,Seat,Ibiza,2012,98876,53,0.8833,48.58,37.6,86.18
+10099,2051,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Peugeot,5008,2022,88495,174,2.9,159.5,90.12,249.62
+10100,2051,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Peugeot,5008,2022,88495,36,0.6,33,9.64,42.64
+10101,2052,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Hyundai,i20,2021,180868,43,0.7167,39.42,52.88,92.3
+10102,2052,4,55.00,228,"Reparación alternador / motor de arranque",135,28,"Reparación alternador / motor de arranque",5,"Sistema eléctrico",Hyundai,i20,2021,180868,112,1.8667,102.67,263.19,365.86
+10103,2053,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Volkswagen,T-Roc,2014,154041,145,2.4167,132.92,61.32,194.24
+10104,2053,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Volkswagen,T-Roc,2014,154041,74,1.2333,67.83,81.23,149.06
+10105,2054,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Hyundai,i20,2021,180868,110,1.8333,100.83,210.19,311.02
+10106,2055,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Peugeot,208,2015,56291,51,0.85,46.75,0,46.75
+10107,2056,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Seat,Ateca,2010,139782,77,1.2833,70.58,54.35,124.93
+10108,2056,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Seat,Ateca,2010,139782,34,0.5667,31.17,10.31,41.48
+10109,2057,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Ford,Fiesta,2008,189879,61,1.0167,55.92,0,55.92
+10110,2057,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Ford,Fiesta,2008,189879,29,0.4833,26.58,55.62,82.2
+10111,2057,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Ford,Fiesta,2008,189879,25,0.4167,22.92,60.51,83.43
+10112,2058,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Renault,Kadjar,2023,267370,55,0.9167,50.42,0,50.42
+10113,2058,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Renault,Kadjar,2023,267370,19,0.3167,17.42,22.48,39.9
+10114,2059,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Seat,Toledo,2018,271170,37,0.6167,33.92,0,33.92
+10115,2059,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Seat,Toledo,2018,271170,143,2.3833,131.08,218.52,349.6
+10116,2060,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Seat,Toledo,2023,278638,495,8.25,453.75,163.31,617.06
+10117,2060,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Seat,Toledo,2023,278638,362,6.0333,331.83,818.1,1149.93
+10118,2061,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Hyundai,i30,2015,100669,109,1.8167,99.92,142.61,242.53
+10119,2061,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Hyundai,i30,2015,100669,18,0.3,16.5,22.62,39.12
+10120,2062,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Seat,Toledo,2023,278638,23,0.3833,21.08,51.01,72.09
+10121,2063,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Renault,Captur,2011,71117,57,0.95,52.25,0,52.25
+10122,2063,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Renault,Captur,2011,71117,164,2.7333,150.33,217.15,367.48
+10123,2064,4,55.00,226,"Cambio de barras estabilizadoras",120,26,"Cambio de barras estabilizadoras",4,"Suspensión / Dirección",Seat,Ibiza,2012,98876,109,1.8167,99.92,75.8,175.72
+10124,2064,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Seat,Ibiza,2012,98876,153,2.55,140.25,87.62,227.87
+10125,2064,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Seat,Ibiza,2012,98876,292,4.8667,267.67,311.04,578.71
+10126,2065,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Peugeot,2008,2016,18407,45,0.75,41.25,728,769.25
+10127,2065,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Peugeot,2008,2016,18407,59,0.9833,54.08,0,54.08
+10128,2066,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Seat,Toledo,2018,271170,50,0.8333,45.83,38.63,84.46
+10129,2067,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Renault,Megane,2023,101574,125,2.0833,114.58,213.22,327.8
+10130,2068,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Ford,Fiesta,2008,189879,95,1.5833,87.08,49.15,136.23
+10131,2068,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Ford,Fiesta,2008,189879,165,2.75,151.25,213.33,364.58
+10132,2068,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Ford,Fiesta,2008,189879,52,0.8667,47.67,18.56,66.23
+10133,2069,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Peugeot,3008,2009,135087,65,1.0833,59.58,0,59.58
+10134,2070,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Hyundai,i30,2015,100669,83,1.3833,76.08,203.96,280.04
+10135,2071,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Fiat,500,2020,56313,65,1.0833,59.58,78.87,138.45
+10136,2072,4,55.00,231,"Sustitución de fusibles y relés",22,31,"Sustitución de fusibles y relés",5,"Sistema eléctrico",Fiat,Tipo,2008,75058,17,0.2833,15.58,7.02,22.6
+10137,2072,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Fiat,Tipo,2008,75058,125,2.0833,114.58,217.02,331.6
+10138,2073,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Toyota,C-HR,2011,41522,20,0.3333,18.33,14.46,32.79
+10139,2074,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Opel,Crossland,2022,164552,54,0.9,49.5,71.65,121.15
+10140,2075,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Nissan,Micra,2011,46778,116,1.9333,106.33,157.53,263.86
+10141,2075,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Nissan,Micra,2011,46778,37,0.6167,33.92,8.15,42.07
+10142,2076,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Kia,Ceed,2024,119286,69,1.15,63.25,72.84,136.09
+10143,2077,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Opel,Astra,2022,16701,108,1.8,99,300.33,399.33
+10144,2077,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Opel,Astra,2022,16701,83,1.3833,76.08,80.13,156.21
+10145,2078,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Ford,Focus,2022,173606,338,5.6333,309.83,450.82,760.65
+10146,2079,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Fiat,500,2020,56313,82,1.3667,75.17,0,75.17
+10147,2080,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Peugeot,2008,2016,18407,32,0.5333,29.33,37.04,66.37
+10148,2080,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Peugeot,2008,2016,18407,13,0.2167,11.92,14.29,26.21
+10149,2081,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Volkswagen,T-Roc,2014,154041,42,0.7,38.5,487.48,525.98
+10150,2081,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Volkswagen,T-Roc,2014,154041,85,1.4167,77.92,122.94,200.86
+10151,2082,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Volkswagen,Golf,2020,65707,139,2.3167,127.42,97.26,224.68
+10152,2082,4,55.00,201,"Cambio de pastillas",45,1,"Cambio de pastillas",1,Frenos,Volkswagen,Golf,2020,65707,60,1,55,56.84,111.84
+10153,2083,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Toyota,C-HR,2011,41522,41,0.6833,37.58,507.84,545.42
+10154,2083,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Toyota,C-HR,2011,41522,392,6.5333,359.33,279.13,638.46
+10155,2083,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Toyota,C-HR,2011,41522,60,1,55,110.97,165.97
+10156,2084,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Kia,Ceed,2024,119286,22,0.3667,20.17,132.56,152.73
+10157,2084,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Kia,Ceed,2024,119286,61,1.0167,55.92,446.56,502.48
+10158,2085,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Fiat,500,2020,56313,33,0.55,30.25,60.69,90.94
+10159,2085,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Fiat,500,2020,56313,149,2.4833,136.58,76.54,213.12
+10160,2085,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Fiat,500,2020,56313,48,0.8,44,676.92,720.92
+10161,2085,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Fiat,500,2020,56313,387,6.45,354.75,296.92,651.67
+10162,2086,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Nissan,Micra,2011,46778,21,0.35,19.25,14.22,33.47
+10163,2086,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Nissan,Micra,2011,46778,285,4.75,261.25,291.33,552.58
+10164,2087,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Ford,Puma,2019,100277,118,1.9667,108.17,222.93,331.1
+10165,2087,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Ford,Puma,2019,100277,20,0.3333,18.33,120.27,138.6
+10166,2087,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Ford,Puma,2019,100277,91,1.5167,83.42,128.09,211.51
+10167,2087,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Ford,Puma,2019,100277,304,5.0667,278.67,238.09,516.76
+10168,2088,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Peugeot,208,2015,56291,34,0.5667,31.17,513.24,544.41
+10169,2089,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Renault,Kadjar,2023,267370,50,0.8333,45.83,677.92,723.75
+10170,2089,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Renault,Kadjar,2023,267370,207,3.45,189.75,246.85,436.6
+10171,2089,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Renault,Kadjar,2023,267370,41,0.6833,37.58,0,37.58
+10172,2090,4,55.00,228,"Reparación alternador / motor de arranque",135,28,"Reparación alternador / motor de arranque",5,"Sistema eléctrico",Volkswagen,Golf,2020,65707,166,2.7667,152.17,286.52,438.69
+10173,2090,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Volkswagen,Golf,2020,65707,55,0.9167,50.42,729.32,779.74
+10174,2091,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Volkswagen,T-Roc,2014,154041,598,9.9667,548.17,149.98,698.15
+10175,2092,4,55.00,210,"Sustitución de filtro de aire",20,10,"Sustitución de filtro de aire",2,Motor,Hyundai,i30,2015,100669,28,0.4667,25.67,21.21,46.88
+10176,2092,4,55.00,219,"Reparación de diferencial",300,19,"Reparación de diferencial",3,"Transmisión / Embrague",Hyundai,i30,2015,100669,266,4.4333,243.83,118.12,361.95
+10177,2092,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Hyundai,i30,2015,100669,16,0.2667,14.67,16.22,30.89
+10178,2092,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Hyundai,i30,2015,100669,28,0.4667,25.67,0,25.67
+10179,2093,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Ford,Puma,2019,100277,61,1.0167,55.92,36.16,92.08
+10180,2094,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Volkswagen,T-Roc,2014,154041,79,1.3167,72.42,82.06,154.48
+10181,2095,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Renault,Captur,2011,71117,38,0.6333,34.83,38.6,73.43
+10182,2096,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Seat,Ateca,2010,139782,17,0.2833,15.58,17.03,32.61
+10183,2096,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Seat,Ateca,2010,139782,17,0.2833,15.58,114.55,130.13
+10184,2097,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Ford,Focus,2022,173606,71,1.1833,65.08,75.48,140.56
+10185,2098,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Nissan,Note,2021,224400,68,1.1333,62.33,76.86,139.19
+10186,2098,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Nissan,Note,2021,224400,82,1.3667,75.17,172.42,247.59
+10187,2098,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Nissan,Note,2021,224400,205,3.4167,187.92,96.94,284.86
+10188,2099,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Peugeot,2008,2021,114829,207,3.45,189.75,95.26,285.01
+10189,2099,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Peugeot,2008,2021,114829,271,4.5167,248.42,354.7,603.12
+10190,2099,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Peugeot,2008,2021,114829,32,0.5333,29.33,54.99,84.32
+10191,2099,4,55.00,254,"Sustitución de filtro de combustible",35,11,"Sustitución de filtro de combustible",2,Motor,Peugeot,2008,2021,114829,33,0.55,30.25,52.3,82.55
+10192,2100,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Renault,Megane,2023,101574,299,4.9833,274.08,397.56,671.64
+10193,2100,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Renault,Megane,2023,101574,86,1.4333,78.83,159.86,238.69
+10194,2101,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Volkswagen,Passat,2008,135646,63,1.05,57.75,0,57.75
+10195,2101,4,55.00,262,"Revisión 10.000 / 20.000 km",75,62,"Revisión 10.000 / 20.000 km",12,"Mantenimiento general / Otros",Volkswagen,Passat,2008,135646,73,1.2167,66.92,77.92,144.84
+10196,2101,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Volkswagen,Passat,2008,135646,30,0.5,27.5,54.77,82.27
+10197,2102,4,55.00,201,"Cambio de pastillas",45,1,"Cambio de pastillas",1,Frenos,Peugeot,208,2015,56291,25,0.4167,22.92,60.72,83.64
+10198,2102,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Peugeot,208,2015,56291,54,0.9,49.5,0,49.5
+10199,2103,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Peugeot,2008,2021,114829,73,1.2167,66.92,90.96,157.88
+10200,2103,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Peugeot,2008,2021,114829,66,1.1,60.5,53.22,113.72
+10201,2104,4,55.00,209,"Cambio de bujías",45,9,"Cambio de bujías",2,Motor,Nissan,Micra,2011,46778,41,0.6833,37.58,42.64,80.22
+10202,2104,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Nissan,Micra,2011,46778,30,0.5,27.5,758.44,785.94
+10203,2104,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Nissan,Micra,2011,46778,51,0.85,46.75,0,46.75
+10204,2105,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Hyundai,i20,2021,180868,293,4.8833,268.58,320.76,589.34
+10205,2106,4,55.00,219,"Reparación de diferencial",300,19,"Reparación de diferencial",3,"Transmisión / Embrague",Fiat,Tipo,2008,75058,403,6.7167,369.42,99.38,468.8
+10206,2107,4,55.00,207,"Cambio de aceite y filtro",32,7,"Cambio de aceite y filtro",2,Motor,Ford,Focus,2022,173606,22,0.3667,20.17,61.48,81.65
+10207,2108,4,55.00,231,"Sustitución de fusibles y relés",22,31,"Sustitución de fusibles y relés",5,"Sistema eléctrico",Renault,Megane,2017,129137,23,0.3833,21.08,5.97,27.05
+10208,2109,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Peugeot,3008,2009,135087,138,2.3,126.5,224.02,350.52
+10209,2109,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Peugeot,3008,2009,135087,58,0.9667,53.17,685.4,738.57
+10210,2109,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Peugeot,3008,2009,135087,86,1.4333,78.83,58.62,137.45
+10211,2110,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Seat,Ibiza,2012,98876,37,0.6167,33.92,0,33.92
+10212,2110,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Seat,Ibiza,2012,98876,71,1.1833,65.08,187.47,252.55
+10213,2110,4,55.00,221,"Sustitución de amortiguadores",120,21,"Sustitución de amortiguadores",4,"Suspensión / Dirección",Seat,Ibiza,2012,98876,133,2.2167,121.92,186.52,308.44
+11000,2200,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Peugeot,2008,2016,18407,47,0.7833,43.08,0,43.08
+11001,2200,4,55.00,254,"Sustitución de filtro de combustible",35,11,"Sustitución de filtro de combustible",2,Motor,Peugeot,2008,2016,18407,42,0.7,38.5,60.54,99.04
+11002,2201,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Volkswagen,T-Roc,2014,154041,55,0.9167,50.42,0,50.42
+11003,2202,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Peugeot,208,2015,56291,163,2.7167,149.42,91.15,240.57
+11004,2202,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Peugeot,208,2015,56291,69,1.15,63.25,63.02,126.27
+11005,2203,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Seat,Ateca,2010,139782,42,0.7,38.5,8.92,47.42
+11006,2204,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Peugeot,2008,2020,255570,182,3.0333,166.83,158.5,325.33
+11007,2204,4,55.00,253,"Limpieza o cambio de inyectores",90,53,"Limpieza o cambio de inyectores",10,"Sistema de combustible",Peugeot,2008,2020,255570,90,1.5,82.5,134.06,216.56
+11008,2205,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Peugeot,2008,2016,18407,32,0.5333,29.33,443.44,472.77
+11009,2206,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Peugeot,5008,2022,88495,407,6.7833,373.08,801.05,1174.13
+11010,2207,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Peugeot,2008,2016,18407,64,1.0667,58.67,0,58.67
+11011,2207,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Peugeot,2008,2016,18407,175,2.9167,160.42,48.48,208.9
+11012,2208,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Peugeot,2008,2016,18407,65,1.0833,59.58,193.49,253.07
+11013,2208,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Peugeot,2008,2016,18407,60,1,55,0,55
+11014,2209,4,55.00,236,"Reparación de evaporador / condensador",240,36,"Reparación de evaporador / condensador",6,"Aire acondicionado / climatización",Opel,Astra,2022,16701,278,4.6333,254.83,128.71,383.54
+11015,2209,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Opel,Astra,2022,16701,102,1.7,93.5,140.08,233.58
+11016,2210,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Nissan,Micra,2011,46778,171,2.85,156.75,99.63,256.38
+11017,2210,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Nissan,Micra,2011,46778,97,1.6167,88.92,94.82,183.74
+11018,2211,4,55.00,237,"Comprobación de fugas y presión",45,37,"Comprobación de fugas y presión",6,"Aire acondicionado / climatización",Renault,Captur,2022,180767,42,0.7,38.5,0,38.5
+11019,2212,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Seat,Ateca,2010,139782,16,0.2667,14.67,15.5,30.17
+11020,2213,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Peugeot,5008,2022,88495,360,6,330,459.75,789.75
+11021,2214,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Kia,Ceed,2024,119286,286,4.7667,262.17,179.04,441.21
+11022,2215,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Peugeot,208,2015,56291,19,0.3167,17.42,9.88,27.3
+11023,2216,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Opel,Crossland,2022,164552,37,0.6167,33.92,452.2,486.12
+11024,2216,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Opel,Crossland,2022,164552,50,0.8333,45.83,0,45.83
+11025,2217,4,55.00,236,"Reparación de evaporador / condensador",240,36,"Reparación de evaporador / condensador",6,"Aire acondicionado / climatización",Ford,Focus,2022,173606,277,4.6167,253.92,150.46,404.38
+11026,2218,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Seat,Ateca,2010,139782,99,1.65,90.75,133.68,224.43
+11027,2218,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Seat,Ateca,2010,139782,69,1.15,63.25,85.97,149.22
+11028,2219,4,55.00,201,"Cambio de pastillas",45,1,"Cambio de pastillas",1,Frenos,Fiat,500,2020,56313,36,0.6,33,53.74,86.74
+11029,2219,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Fiat,500,2020,56313,96,1.6,88,134.88,222.88
+11030,2220,4,55.00,236,"Reparación de evaporador / condensador",240,36,"Reparación de evaporador / condensador",6,"Aire acondicionado / climatización",Ford,Fiesta,2008,189879,286,4.7667,262.17,141.1,403.27
+11031,2221,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Opel,Astra,2022,16701,55,0.9167,50.42,0,50.42
+11032,2221,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Opel,Astra,2022,16701,296,4.9333,271.33,51.87,323.2
+11033,2222,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Peugeot,2008,2020,255570,83,1.3833,76.08,0,76.08
+11034,2223,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Renault,Kadjar,2023,267370,71,1.1833,65.08,67.86,132.94
+11035,2223,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Renault,Kadjar,2023,267370,59,0.9833,54.08,0,54.08
+11036,2223,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Renault,Kadjar,2023,267370,36,0.6,33,0,33
+11037,2224,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Nissan,Micra,2009,134484,41,0.6833,37.58,0,37.58
+11038,2224,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Nissan,Micra,2009,134484,61,1.0167,55.92,48.52,104.44
+11039,2225,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Renault,Megane,2023,101574,50,0.8333,45.83,0,45.83
+11040,2225,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Renault,Megane,2023,101574,171,2.85,156.75,119.94,276.69
+11041,2226,4,55.00,264,"Comprobación de niveles y líquidos",22,64,"Comprobación de niveles y líquidos",12,"Mantenimiento general / Otros",Nissan,Micra,2011,46778,34,0.5667,31.17,16.2,47.37
+11042,2227,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Peugeot,5008,2022,88495,65,1.0833,59.58,68.98,128.56
+11043,2228,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Kia,Ceed,2024,271131,42,0.7,38.5,59.54,98.04
+11044,2229,4,55.00,209,"Cambio de bujías",45,9,"Cambio de bujías",2,Motor,Volkswagen,Passat,2008,135646,52,0.8667,47.67,34.8,82.47
+11045,2230,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Peugeot,2008,2016,18407,145,2.4167,132.92,189.19,322.11
+11046,2230,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Peugeot,2008,2016,18407,92,1.5333,84.33,167.29,251.62
+11047,2231,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Volkswagen,Passat,2008,135646,172,2.8667,157.67,170.3,327.97
+11048,2232,4,55.00,253,"Limpieza o cambio de inyectores",90,53,"Limpieza o cambio de inyectores",10,"Sistema de combustible",Renault,Kadjar,2023,267370,101,1.6833,92.58,139.1,231.68
+11049,2233,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Opel,Astra,2022,16701,42,0.7,38.5,10.34,48.84
+11050,2233,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Opel,Astra,2022,16701,47,0.7833,43.08,8.01,51.09
+11051,2234,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Volkswagen,T-Roc,2014,154041,85,1.4167,77.92,55.59,133.51
+11052,2235,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Ford,Fiesta,2008,189879,54,0.9,49.5,0,49.5
+11053,2236,4,55.00,228,"Reparación alternador / motor de arranque",135,28,"Reparación alternador / motor de arranque",5,"Sistema eléctrico",Renault,Captur,2011,71117,132,2.2,121,281.96,402.96
+11054,2237,4,55.00,235,"Sustitución de filtro de habitáculo",20,35,"Sustitución de filtro de habitáculo",6,"Aire acondicionado / climatización",Peugeot,3008,2009,135087,22,0.3667,20.17,16.09,36.26
+11055,2238,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Volkswagen,Passat,2008,135646,16,0.2667,14.67,25.33,40
+11056,2239,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Fiat,500,2020,56313,119,1.9833,109.08,82.56,191.64
+11057,2239,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Fiat,500,2020,56313,45,0.75,41.25,43.64,84.89
+11058,2240,4,55.00,201,"Cambio de pastillas",45,1,"Cambio de pastillas",1,Frenos,Ford,Fiesta,2008,189879,62,1.0333,56.83,49.63,106.46
+11059,2240,4,55.00,236,"Reparación de evaporador / condensador",240,36,"Reparación de evaporador / condensador",6,"Aire acondicionado / climatización",Ford,Fiesta,2008,189879,215,3.5833,197.08,145.53,342.61
+11060,2241,4,55.00,253,"Limpieza o cambio de inyectores",90,53,"Limpieza o cambio de inyectores",10,"Sistema de combustible",Nissan,Micra,2011,46778,124,2.0667,113.67,130.42,244.09
+11061,2241,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Nissan,Micra,2011,46778,46,0.7667,42.17,42.29,84.46
+11062,2242,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Ford,Puma,2019,100277,86,1.4333,78.83,0,78.83
+11063,2243,4,55.00,264,"Comprobación de niveles y líquidos",22,64,"Comprobación de niveles y líquidos",12,"Mantenimiento general / Otros",Volkswagen,Golf,2020,65707,23,0.3833,21.08,19.94,41.02
+11064,2243,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Volkswagen,Golf,2020,65707,317,5.2833,290.58,56.54,347.12
+11065,2243,4,55.00,254,"Sustitución de filtro de combustible",35,11,"Sustitución de filtro de combustible",2,Motor,Volkswagen,Golf,2020,65707,31,0.5167,28.42,59.76,88.18
+11066,2244,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Nissan,Note,2021,224400,89,1.4833,81.58,74.7,156.28
+11067,2245,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Nissan,Note,2021,224400,13,0.2167,11.92,25.6,37.52
+11068,2245,4,55.00,236,"Reparación de evaporador / condensador",240,36,"Reparación de evaporador / condensador",6,"Aire acondicionado / climatización",Nissan,Note,2021,224400,274,4.5667,251.17,152.59,403.76
+11069,2246,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Hyundai,i20,2021,180868,59,0.9833,54.08,45.97,100.05
+11070,2246,4,55.00,240,"Sustitución de sondas lambda",45,40,"Sustitución de sondas lambda",7,Escape,Hyundai,i20,2021,180868,48,0.8,44,95.14,139.14
+11071,2247,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Volkswagen,Passat,2008,135646,577,9.6167,528.92,179.32,708.24
+11072,2248,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Peugeot,2008,2020,255570,75,1.25,68.75,0,68.75
+11073,2249,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Opel,Astra,2022,16701,145,2.4167,132.92,58.61,191.53
+11074,2249,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Opel,Astra,2022,16701,35,0.5833,32.08,9.37,41.45
+11075,2250,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Peugeot,3008,2009,135087,58,0.9667,53.17,52.26,105.43
+11076,2251,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Opel,Crossland,2022,164552,548,9.1333,502.33,188.38,690.71
+11077,2252,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Renault,Megane,2017,129137,174,2.9,159.5,171.75,331.25
+11078,2253,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Seat,Ibiza,2012,98876,45,0.75,41.25,0,41.25
+11079,2253,4,55.00,245,"Pulido y retoque de pintura",120,45,"Pulido y retoque de pintura",8,"Carrocería / pintura",Seat,Ibiza,2012,98876,186,3.1,170.5,29.79,200.29
+11080,2254,4,55.00,259,"Cambio de líquido refrigerante",35,59,"Cambio de líquido refrigerante",11,"Sistema de refrigeración",Peugeot,2008,2016,18407,30,0.5,27.5,23.8,51.3
+11081,2255,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Nissan,Note,2021,224400,63,1.05,57.75,0,57.75
+11082,2255,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Nissan,Note,2021,224400,202,3.3667,185.17,61.11,246.28
+11083,2255,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Nissan,Note,2021,224400,124,2.0667,113.67,81.52,195.19
+11084,2256,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Opel,Astra,2022,16701,100,1.6667,91.67,90.7,182.37
+11085,2256,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Opel,Astra,2022,16701,74,1.2333,67.83,163.71,231.54
+11086,2257,4,55.00,237,"Comprobación de fugas y presión",45,37,"Comprobación de fugas y presión",6,"Aire acondicionado / climatización",Peugeot,2008,2021,114829,50,0.8333,45.83,0,45.83
+11087,2257,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Peugeot,2008,2021,114829,32,0.5333,29.33,657.32,686.65
+11088,2258,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Peugeot,5008,2022,88495,517,8.6167,473.92,844.46,1318.38
+11089,2258,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Peugeot,5008,2022,88495,36,0.6,33,0,33
+11090,2259,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Seat,Ateca,2010,139782,78,1.3,71.5,179.09,250.59
+11091,2259,4,55.00,259,"Cambio de líquido refrigerante",35,59,"Cambio de líquido refrigerante",11,"Sistema de refrigeración",Seat,Ateca,2010,139782,33,0.55,30.25,22.36,52.61
+11092,2260,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Nissan,Micra,2011,46778,32,0.5333,29.33,9.64,38.97
+11093,2260,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Nissan,Micra,2011,46778,21,0.35,19.25,24.28,43.53
+11094,2261,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Seat,Ibiza,2012,98876,32,0.5333,29.33,39.14,68.47
+11095,2261,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Seat,Ibiza,2012,98876,60,1,55,110.67,165.67
+11096,2262,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Toyota,C-HR,2011,41522,17,0.2833,15.58,127.96,143.54
+11097,2263,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Peugeot,2008,2016,18407,20,0.3333,18.33,24.73,43.06
+11098,2263,4,55.00,245,"Pulido y retoque de pintura",120,45,"Pulido y retoque de pintura",8,"Carrocería / pintura",Peugeot,2008,2016,18407,183,3.05,167.75,27.06,194.81
+11099,2264,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Seat,Toledo,2023,278638,116,1.9333,106.33,87.41,193.74
+11100,2265,4,55.00,254,"Sustitución de filtro de combustible",35,11,"Sustitución de filtro de combustible",2,Motor,Toyota,C-HR,2011,41522,30,0.5,27.5,62.04,89.54
+11101,2265,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Toyota,C-HR,2011,41522,63,1.05,57.75,36.68,94.43
+11102,2265,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Toyota,C-HR,2011,41522,166,2.7667,152.17,172.24,324.41
+11103,2266,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Fiat,Tipo,2008,75058,98,1.6333,89.83,107.33,197.16
+11104,2266,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Fiat,Tipo,2008,75058,74,1.2333,67.83,107.94,175.77
+11105,2267,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Volkswagen,Passat,2008,135646,23,0.3833,21.08,35.36,56.44
+11106,2268,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Kia,Ceed,2024,119286,590,9.8333,540.83,206.45,747.28
+11107,2269,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Peugeot,208,2015,56291,212,3.5333,194.33,361.85,556.18
+11108,2270,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Opel,Crossland,2022,164552,11,0.1833,10.08,21.35,31.43
+11109,2271,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Hyundai,i20,2021,180868,117,1.95,107.25,192.81,300.06
+11110,2271,4,55.00,228,"Reparación alternador / motor de arranque",135,28,"Reparación alternador / motor de arranque",5,"Sistema eléctrico",Hyundai,i20,2021,180868,158,2.6333,144.83,285.06,429.89
+11111,2272,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Peugeot,208,2015,56291,32,0.5333,29.33,453.56,482.89
+11112,2272,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Peugeot,208,2015,56291,66,1.1,60.5,207.21,267.71
+11113,2273,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Seat,Ibiza,2012,98876,84,1.4,77,211.59,288.59
+11114,2274,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Volkswagen,Golf,2020,65707,13,0.2167,11.92,23.02,34.94
+11115,2275,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Nissan,Micra,2011,46778,95,1.5833,87.08,82.74,169.82
+11116,2275,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Nissan,Micra,2011,46778,132,2.2,121,110.72,231.72
+11117,2276,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Hyundai,i30,2015,100669,184,3.0667,168.67,85.38,254.05
+11118,2277,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Renault,Captur,2011,71117,27,0.45,24.75,126.71,151.46
+11119,2278,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Renault,Kadjar,2023,267370,368,6.1333,337.33,773.36,1110.69
+11120,2279,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Nissan,Juke,2017,224186,349,5.8167,319.92,56.38,376.3
+11121,2279,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Nissan,Juke,2017,224186,43,0.7167,39.42,0,39.42
+11122,2280,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Nissan,Micra,2009,134484,85,1.4167,77.92,176.97,254.89
+11123,2281,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Renault,Megane,2017,129137,97,1.6167,88.92,91.2,180.12
+11124,2282,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Seat,Toledo,2018,271170,38,0.6333,34.83,45.48,80.31
+11125,2283,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Renault,Megane,2017,129137,68,1.1333,62.33,47,109.33
+11126,2284,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Opel,Astra,2022,16701,219,3.65,200.75,288.53,489.28
+11127,2285,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Renault,Megane,2023,101574,593,9.8833,543.58,202.92,746.5
+11128,2285,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Renault,Megane,2023,101574,60,1,55,57.21,112.21
+11129,2285,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Renault,Megane,2023,101574,574,9.5667,526.17,166.47,692.64
+11130,2286,4,55.00,264,"Comprobación de niveles y líquidos",22,64,"Comprobación de niveles y líquidos",12,"Mantenimiento general / Otros",Peugeot,208,2015,56291,14,0.2333,12.83,16.71,29.54
+11131,2286,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Peugeot,208,2015,56291,78,1.3,71.5,170.5,242
+11132,2287,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Nissan,Juke,2017,224186,31,0.5167,28.42,0,28.42
+11133,2288,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Renault,Captur,2022,180767,21,0.35,19.25,25.14,44.39
+11134,2289,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Volkswagen,T-Roc,2010,138314,58,0.9667,53.17,101.37,154.54
+11135,2290,4,55.00,226,"Cambio de barras estabilizadoras",120,26,"Cambio de barras estabilizadoras",4,"Suspensión / Dirección",Peugeot,2008,2021,114829,111,1.85,101.75,83.85,185.6
+11136,2291,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Seat,Ibiza,2012,98876,227,3.7833,208.08,290.95,499.03
+11137,2291,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Seat,Ibiza,2012,98876,35,0.5833,32.08,21.33,53.41
+11138,2292,4,55.00,209,"Cambio de bujías",45,9,"Cambio de bujías",2,Motor,Renault,Captur,2011,71117,35,0.5833,32.08,44.24,76.32
+11139,2292,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Renault,Captur,2011,71117,619,10.3167,567.42,178.21,745.63
+11140,2293,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Volkswagen,T-Roc,2010,138314,31,0.5167,28.42,0,28.42
+11141,2293,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Volkswagen,T-Roc,2010,138314,56,0.9333,51.33,74.42,125.75
+11142,2294,4,55.00,245,"Pulido y retoque de pintura",120,45,"Pulido y retoque de pintura",8,"Carrocería / pintura",Peugeot,5008,2022,88495,80,1.3333,73.33,26.3,99.63
+11143,2294,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Peugeot,5008,2022,88495,59,0.9833,54.08,0,54.08
+11144,2294,4,55.00,240,"Sustitución de sondas lambda",45,40,"Sustitución de sondas lambda",7,Escape,Peugeot,5008,2022,88495,50,0.8333,45.83,117.16,162.99
+11145,2295,4,55.00,201,"Cambio de pastillas",45,1,"Cambio de pastillas",1,Frenos,Hyundai,i30,2015,100669,34,0.5667,31.17,50.11,81.28
+11146,2296,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Nissan,Micra,2011,46778,78,1.3,71.5,51.53,123.03
+11147,2296,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Nissan,Micra,2011,46778,71,1.1833,65.08,63.23,128.31
+11148,2297,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Kia,Ceed,2024,119286,52,0.8667,47.67,0,47.67
+11149,2297,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Kia,Ceed,2024,119286,10,0.1667,9.17,22.29,31.46
+11150,2298,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Volkswagen,T-Roc,2010,138314,117,1.95,107.25,311.1,418.35
+11151,2298,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Volkswagen,T-Roc,2010,138314,45,0.75,41.25,16.21,57.46
+11152,2299,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Peugeot,2008,2020,255570,39,0.65,35.75,0,35.75
+11153,2299,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Peugeot,2008,2020,255570,645,10.75,591.25,212.45,803.7
+11154,2299,4,55.00,231,"Sustitución de fusibles y relés",22,31,"Sustitución de fusibles y relés",5,"Sistema eléctrico",Peugeot,2008,2020,255570,23,0.3833,21.08,7.32,28.4
+11155,2300,4,55.00,204,"Reparación de pinzas",75,4,"Reparación de pinzas",1,Frenos,Opel,Crossland,2022,164552,78,1.3,71.5,165.85,237.35
+11156,2300,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Opel,Crossland,2022,164552,142,2.3667,130.17,330.36,460.53
+11157,2300,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Opel,Crossland,2022,164552,33,0.55,30.25,36.8,67.05
+11158,2301,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Fiat,500,2020,56313,280,4.6667,256.67,417.17,673.84
+11159,2302,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Peugeot,5008,2022,88495,59,0.9833,54.08,191.48,245.56
+11160,2303,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Renault,Kadjar,2023,267370,38,0.6333,34.83,17.9,52.73
+11161,2303,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Renault,Kadjar,2023,267370,79,1.3167,72.42,86.42,158.84
+11162,2304,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Kia,Ceed,2024,271131,56,0.9333,51.33,0,51.33
+11163,2304,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Kia,Ceed,2024,271131,43,0.7167,39.42,0,39.42
+11164,2305,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Peugeot,208,2015,56291,76,1.2667,69.67,0,69.67
+11165,2305,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Peugeot,208,2015,56291,152,2.5333,139.33,125.72,265.05
+11166,2306,4,55.00,219,"Reparación de diferencial",300,19,"Reparación de diferencial",3,"Transmisión / Embrague",Volkswagen,T-Roc,2014,154041,261,4.35,239.25,103.79,343.04
+11167,2306,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Volkswagen,T-Roc,2014,154041,67,1.1167,61.42,0,61.42
+11168,2307,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Peugeot,208,2015,56291,40,0.6667,36.67,19.11,55.78
+11169,2308,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Ford,Fiesta,2008,189879,67,1.1167,61.42,0,61.42
+11170,2309,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Renault,Captur,2022,180767,162,2.7,148.5,109.18,257.68
+11171,2310,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Opel,Crossland,2022,164552,70,1.1667,64.17,178.02,242.19
+11172,2310,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Opel,Crossland,2022,164552,230,3.8333,210.83,337.62,548.45
+11173,2311,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Peugeot,208,2015,56291,63,1.05,57.75,484.84,542.59
+11174,2311,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Peugeot,208,2015,56291,92,1.5333,84.33,65.72,150.05
+11175,2312,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Renault,Captur,2022,180767,52,0.8667,47.67,0,47.67
+11176,2312,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Renault,Captur,2022,180767,109,1.8167,99.92,86.79,186.71
+11177,2313,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Volkswagen,T-Roc,2010,138314,39,0.65,35.75,51.27,87.02
+11178,2314,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Renault,Kadjar,2023,267370,124,2.0667,113.67,140.18,253.85
+11179,2315,4,55.00,259,"Cambio de líquido refrigerante",35,59,"Cambio de líquido refrigerante",11,"Sistema de refrigeración",Volkswagen,T-Roc,2010,138314,30,0.5,27.5,25.49,52.99
+11180,2315,4,55.00,228,"Reparación alternador / motor de arranque",135,28,"Reparación alternador / motor de arranque",5,"Sistema eléctrico",Volkswagen,T-Roc,2010,138314,99,1.65,90.75,265.28,356.03
+11181,2315,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Volkswagen,T-Roc,2010,138314,79,1.3167,72.42,178.23,250.65
+11182,2316,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Ford,Puma,2019,100277,446,7.4333,408.83,152.42,561.25
+11183,2316,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Ford,Puma,2019,100277,82,1.3667,75.17,175.23,250.4
+11184,2316,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Ford,Puma,2019,100277,302,5.0333,276.83,388.47,665.3
+11185,2317,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Renault,Captur,2022,180767,175,2.9167,160.42,120.06,280.48
+11186,2317,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Renault,Captur,2022,180767,24,0.4,22,64.22,86.22
+11187,2317,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Renault,Captur,2022,180767,162,2.7,148.5,136.3,284.8
+11188,2318,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Peugeot,208,2015,56291,501,8.35,459.25,166.36,625.61
+11189,2319,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Opel,Crossland,2022,164552,113,1.8833,103.58,56.89,160.47
+11190,2319,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Opel,Crossland,2022,164552,174,2.9,159.5,377.32,536.82
+11191,2320,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Volkswagen,T-Roc,2014,154041,27,0.45,24.75,0,24.75
+11192,2321,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Renault,Captur,2011,71117,131,2.1833,120.08,91.73,211.81
+11193,2321,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Renault,Captur,2011,71117,23,0.3833,21.08,8.86,29.94
+11194,2322,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Hyundai,i30,2015,100669,425,7.0833,389.58,807.62,1197.2
+11195,2323,4,55.00,253,"Limpieza o cambio de inyectores",90,53,"Limpieza o cambio de inyectores",10,"Sistema de combustible",Opel,Crossland,2022,164552,108,1.8,99,149.99,248.99
+11196,2324,4,55.00,226,"Cambio de barras estabilizadoras",120,26,"Cambio de barras estabilizadoras",4,"Suspensión / Dirección",Nissan,Note,2021,224400,141,2.35,129.25,85.99,215.24
+11197,2324,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Nissan,Note,2021,224400,425,7.0833,389.58,218.35,607.93
+11198,2325,4,55.00,261,"Inspección pre-ITV",45,61,"Inspección pre-ITV",12,"Mantenimiento general / Otros",Renault,Kadjar,2023,267370,45,0.75,41.25,0,41.25
+11199,2325,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Renault,Kadjar,2023,267370,32,0.5333,29.33,50.34,79.67
+11200,2325,4,55.00,226,"Cambio de barras estabilizadoras",120,26,"Cambio de barras estabilizadoras",4,"Suspensión / Dirección",Renault,Kadjar,2023,267370,123,2.05,112.75,78.57,191.32
+11201,2326,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Peugeot,2008,2021,114829,68,1.1333,62.33,0,62.33
+11202,2326,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Peugeot,2008,2021,114829,319,5.3167,292.42,367.7,660.12
+11203,2327,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Ford,Puma,2019,100277,115,1.9167,105.42,56.28,161.7
+11204,2328,4,55.00,250,"Cambio de llantas",45,50,"Cambio de llantas",9,"Neumáticos / ruedas",Hyundai,i20,2021,180868,47,0.7833,43.08,818.36,861.44
+11205,2329,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Hyundai,i20,2021,180868,171,2.85,156.75,399.83,556.58
+11206,2329,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Hyundai,i20,2021,180868,69,1.15,63.25,58.12,121.37
+11207,2330,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Peugeot,208,2015,56291,37,0.6167,33.92,52.5,86.42
+11208,2330,4,55.00,247,"Sustitución de neumáticos",45,47,"Sustitución de neumáticos",9,"Neumáticos / ruedas",Peugeot,208,2015,56291,34,0.5667,31.17,548.2,579.37
+11209,2331,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Nissan,Juke,2017,224186,130,2.1667,119.17,148.2,267.37
+11210,2332,4,55.00,245,"Pulido y retoque de pintura",120,45,"Pulido y retoque de pintura",8,"Carrocería / pintura",Peugeot,3008,2009,135087,71,1.1833,65.08,30.84,95.92
+11211,2333,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Hyundai,i30,2015,100669,60,1,55,121.96,176.96
+11212,2334,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Volkswagen,Golf,2020,65707,66,1.1,60.5,50.98,111.48
+11213,2334,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Volkswagen,Golf,2020,65707,50,0.8333,45.83,43.06,88.89
+11214,2334,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Volkswagen,Golf,2020,65707,158,2.6333,144.83,374.18,519.01
+11215,2335,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Seat,Toledo,2018,271170,75,1.25,68.75,0,68.75
+11216,2336,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Kia,Ceed,2024,119286,114,1.9,104.5,350.41,454.91
+11217,2337,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Ford,Fiesta,2008,189879,43,0.7167,39.42,25.41,64.83
+11218,2338,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Opel,Crossland,2022,164552,600,10,550,176.03,726.03
+11219,2338,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Opel,Crossland,2022,164552,190,3.1667,174.17,165.91,340.08
+11220,2339,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Volkswagen,Passat,2008,135646,88,1.4667,80.67,61.09,141.76
+11221,2340,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Seat,Toledo,2023,278638,71,1.1833,65.08,72.36,137.44
+11222,2341,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Nissan,Micra,2011,46778,214,3.5667,196.17,395.91,592.08
+11223,2342,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Seat,Ateca,2010,139782,60,1,55,181.08,236.08
+11224,2342,4,55.00,254,"Sustitución de filtro de combustible",35,11,"Sustitución de filtro de combustible",2,Motor,Seat,Ateca,2010,139782,37,0.6167,33.92,59.72,93.64
+11225,2342,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Seat,Ateca,2010,139782,44,0.7333,40.33,0,40.33
+11226,2343,4,55.00,219,"Reparación de diferencial",300,19,"Reparación de diferencial",3,"Transmisión / Embrague",Peugeot,2008,2020,255570,346,5.7667,317.17,110.87,428.04
+11227,2344,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Peugeot,2008,2020,255570,50,0.8333,45.83,42.75,88.58
+11228,2344,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Peugeot,2008,2020,255570,206,3.4333,188.83,439.86,628.69
+11229,2345,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Renault,Captur,2011,71117,63,1.05,57.75,34.15,91.9
+11230,2345,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Renault,Captur,2011,71117,56,0.9333,51.33,0,51.33
+11231,2346,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Ford,Focus,2022,173606,28,0.4667,25.67,10.15,35.82
+11232,2346,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Ford,Focus,2022,173606,142,2.3667,130.17,91.99,222.16
+11233,2347,4,55.00,254,"Sustitución de filtro de combustible",35,11,"Sustitución de filtro de combustible",2,Motor,Peugeot,5008,2022,88495,24,0.4,22,63.32,85.32
+11234,2348,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Hyundai,i30,2015,100669,353,5.8833,323.58,741.83,1065.41
+11235,2349,4,55.00,226,"Cambio de barras estabilizadoras",120,26,"Cambio de barras estabilizadoras",4,"Suspensión / Dirección",Peugeot,2008,2016,18407,127,2.1167,116.42,73.13,189.55
+11236,2349,4,55.00,228,"Reparación alternador / motor de arranque",135,28,"Reparación alternador / motor de arranque",5,"Sistema eléctrico",Peugeot,2008,2016,18407,140,2.3333,128.33,274.04,402.37
+11237,2350,4,55.00,226,"Cambio de barras estabilizadoras",120,26,"Cambio de barras estabilizadoras",4,"Suspensión / Dirección",Seat,Ibiza,2012,98876,125,2.0833,114.58,79.97,194.55
+11238,2351,4,55.00,211,"Sustitución de filtro de combustible",32,11,"Sustitución de filtro de combustible",2,Motor,Renault,Captur,2022,180767,33,0.55,30.25,48.12,78.37
+11239,2352,4,55.00,231,"Sustitución de fusibles y relés",22,31,"Sustitución de fusibles y relés",5,"Sistema eléctrico",Nissan,Juke,2017,224186,30,0.5,27.5,5.93,33.43
+11240,2353,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Peugeot,208,2015,56291,154,2.5667,141.17,104.1,245.27
+11241,2354,4,55.00,213,"Limpieza de inyectores",90,13,"Limpieza de inyectores",2,Motor,Seat,Toledo,2018,271170,111,1.85,101.75,63.31,165.06
+11242,2355,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Fiat,Tipo,2008,75058,115,1.9167,105.42,83.08,188.5
+11243,2355,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Fiat,Tipo,2008,75058,540,9,495,173.87,668.87
+11244,2356,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Renault,Kadjar,2023,267370,45,0.75,41.25,41.83,83.08
+11245,2356,4,55.00,237,"Comprobación de fugas y presión",45,37,"Comprobación de fugas y presión",6,"Aire acondicionado / climatización",Renault,Kadjar,2023,267370,53,0.8833,48.58,0,48.58
+11246,2357,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Ford,Focus,2022,173606,52,0.8667,47.67,37.78,85.45
+11247,2358,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Volkswagen,Golf,2020,65707,19,0.3167,17.42,129.28,146.7
+11248,2358,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Volkswagen,Golf,2020,65707,37,0.6167,33.92,7.58,41.5
+11249,2359,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Peugeot,5008,2022,88495,114,1.9,104.5,83,187.5
+11250,2360,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Kia,Ceed,2024,271131,35,0.5833,32.08,40.08,72.16
+11251,2361,4,55.00,240,"Sustitución de sondas lambda",45,40,"Sustitución de sondas lambda",7,Escape,Volkswagen,Passat,2008,135646,34,0.5667,31.17,91.32,122.49
+11252,2362,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Nissan,Juke,2017,224186,134,2.2333,122.83,129.5,252.33
+11253,2362,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Nissan,Juke,2017,224186,84,1.4,77,0,77
+11254,2363,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Peugeot,208,2015,56291,101,1.6833,92.58,221.93,314.51
+11255,2364,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Volkswagen,Passat,2008,135646,91,1.5167,83.42,177.41,260.83
+11256,2364,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Volkswagen,Passat,2008,135646,62,1.0333,56.83,36.22,93.05
+11257,2365,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Peugeot,2008,2020,255570,37,0.6167,33.92,8.31,42.23
+11258,2366,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Volkswagen,T-Roc,2010,138314,31,0.5167,28.42,41.12,69.54
+11259,2366,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Volkswagen,T-Roc,2010,138314,88,1.4667,80.67,77.14,157.81
+11260,2367,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Peugeot,2008,2021,114829,42,0.7,38.5,0,38.5
+11261,2368,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Renault,Megane,2017,129137,552,9.2,506,154.85,660.85
+11262,2368,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Renault,Megane,2017,129137,98,1.6333,89.83,376.59,466.42
+11263,2369,4,55.00,219,"Reparación de diferencial",300,19,"Reparación de diferencial",3,"Transmisión / Embrague",Hyundai,i20,2021,180868,263,4.3833,241.08,107.47,348.55
+11264,2370,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Renault,Megane,2023,101574,232,3.8667,212.67,454.48,667.15
+11265,2371,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Seat,Toledo,2018,271170,85,1.4167,77.92,54.07,131.99
+11266,2371,4,55.00,256,"Sustitución de radiador",135,56,"Sustitución de radiador",11,"Sistema de refrigeración",Seat,Toledo,2018,271170,151,2.5167,138.42,206.52,344.94
+11267,2372,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Peugeot,2008,2021,114829,34,0.5667,31.17,139.77,170.94
+11268,2373,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Seat,Toledo,2023,278638,202,3.3667,185.17,262.42,447.59
+11269,2373,4,55.00,231,"Sustitución de fusibles y relés",22,31,"Sustitución de fusibles y relés",5,"Sistema eléctrico",Seat,Toledo,2023,278638,15,0.25,13.75,6.29,20.04
+11270,2373,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Seat,Toledo,2023,278638,262,4.3667,240.17,87.5,327.67
+11271,2374,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Seat,Ibiza,2012,98876,18,0.3,16.5,24.65,41.15
+11272,2374,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Seat,Ibiza,2012,98876,71,1.1833,65.08,54.88,119.96
+11273,2375,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Kia,Ceed,2024,271131,49,0.8167,44.92,46.11,91.03
+11274,2376,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Nissan,Micra,2009,134484,52,0.8667,47.67,41.26,88.93
+11275,2377,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Toyota,C-HR,2011,41522,84,1.4,77,54.25,131.25
+11276,2378,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Hyundai,i30,2015,100669,34,0.5667,31.17,22.67,53.84
+11277,2378,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Hyundai,i30,2015,100669,270,4.5,247.5,420.84,668.34
+11278,2379,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Hyundai,i20,2021,180868,184,3.0667,168.67,373.73,542.4
+11279,2380,4,55.00,254,"Sustitución de filtro de combustible",35,11,"Sustitución de filtro de combustible",2,Motor,Renault,Captur,2022,180767,44,0.7333,40.33,49.34,89.67
+11280,2381,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Nissan,Note,2021,224400,328,5.4667,300.67,259.06,559.73
+11281,2381,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Nissan,Note,2021,224400,24,0.4,22,28.25,50.25
+11282,2381,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Nissan,Note,2021,224400,146,2.4333,133.83,79.33,213.16
+11283,2382,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Seat,Ibiza,2012,98876,62,1.0333,56.83,54.32,111.15
+11284,2383,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Opel,Crossland,2022,164552,28,0.4667,25.67,9.92,35.59
+11285,2384,4,55.00,219,"Reparación de diferencial",300,19,"Reparación de diferencial",3,"Transmisión / Embrague",Peugeot,5008,2022,88495,344,5.7333,315.33,101.11,416.44
+11286,2385,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Peugeot,5008,2022,88495,51,0.85,46.75,42.92,89.67
+11287,2385,4,55.00,214,"Diagnóstico electrónico del motor",60,14,"Diagnóstico electrónico del motor",2,Motor,Peugeot,5008,2022,88495,39,0.65,35.75,0,35.75
+11288,2386,4,55.00,242,"Reparacion de abolladuras",210,42,"Reparación de abolladuras",8,"Carrocería / pintura",Peugeot,2008,2021,114829,243,4.05,222.75,46.87,269.62
+11289,2387,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Nissan,Juke,2017,224186,640,10.6667,586.67,142.21,728.88
+11290,2387,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Nissan,Juke,2017,224186,101,1.6833,92.58,60.02,152.6
+11291,2388,4,55.00,258,"Sustitución de termostato",45,58,"Sustitución de termostato",11,"Sistema de refrigeración",Hyundai,i30,2015,100669,39,0.65,35.75,45.13,80.88
+11292,2389,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Seat,Ibiza,2012,98876,25,0.4167,22.92,43.68,66.6
+11293,2390,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Opel,Astra,2022,16701,40,0.6667,36.67,15.52,52.19
+11294,2390,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Opel,Astra,2022,16701,257,4.2833,235.58,104.26,339.84
+11295,2391,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Peugeot,5008,2022,88495,327,5.45,299.75,264.28,564.03
+11296,2392,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Volkswagen,T-Roc,2010,138314,12,0.2,11,19.51,30.51
+11297,2393,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Renault,Megane,2023,101574,34,0.5667,31.17,8.58,39.75
+11298,2394,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Volkswagen,Golf,2020,65707,202,3.3667,185.17,102.71,287.88
+11299,2395,4,55.00,230,"Diagnóstico electrónico de averías",60,30,"Diagnóstico electrónico de averías",5,"Sistema eléctrico",Seat,Toledo,2023,278638,80,1.3333,73.33,0,73.33
+11300,2396,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Fiat,500,2020,56313,106,1.7667,97.17,215.76,312.93
+11301,2396,4,55.00,245,"Pulido y retoque de pintura",120,45,"Pulido y retoque de pintura",8,"Carrocería / pintura",Fiat,500,2020,56313,85,1.4167,77.92,27.16,105.08
+11302,2397,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Renault,Kadjar,2023,267370,49,0.8167,44.92,42.42,87.34
+11303,2397,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Renault,Kadjar,2023,267370,505,8.4167,462.92,174.03,636.95
+11304,2398,4,55.00,252,"Sustitución de bomba de combustible",135,52,"Sustitución de bomba de combustible",10,"Sistema de combustible",Renault,Kadjar,2023,267370,117,1.95,107.25,180.93,288.18
+11305,2399,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Volkswagen,Golf,2020,65707,46,0.7667,42.17,41.63,83.8
+11306,2399,4,55.00,259,"Cambio de líquido refrigerante",35,59,"Cambio de líquido refrigerante",11,"Sistema de refrigeración",Volkswagen,Golf,2020,65707,35,0.5833,32.08,22.09,54.17
+11307,2399,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Volkswagen,Golf,2020,65707,278,4.6333,254.83,316.4,571.23
+11308,2400,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Peugeot,2008,2021,114829,40,0.6667,36.67,25.26,61.93
+11309,2400,4,55.00,227,"Sustitución de batería",22,27,"Sustitución de batería",5,"Sistema eléctrico",Peugeot,2008,2021,114829,21,0.35,19.25,131.77,151.02
+11310,2401,4,55.00,217,"Cambio de aceite de caja de cambios manual",45,17,"Cambio de aceite de caja de cambios manual",3,"Transmisión / Embrague",Renault,Captur,2022,180767,66,1.1,60.5,36.52,97.02
+11311,2401,4,55.00,240,"Sustitución de sondas lambda",45,40,"Sustitución de sondas lambda",7,Escape,Renault,Captur,2022,180767,36,0.6,33,115.84,148.84
+11312,2402,4,55.00,203,"Sustitución de líquido de frenos",35,3,"Sustitución de líquido de frenos",1,Frenos,Seat,Ibiza,2012,98876,38,0.6333,34.83,17.48,52.31
+11313,2402,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Seat,Ibiza,2012,98876,465,7.75,426.25,864.54,1290.79
+11314,2403,4,55.00,251,"Alineación y paralelismo",45,51,"Alineación y paralelismo",9,"Neumáticos / ruedas",Renault,Megane,2023,101574,49,0.8167,44.92,0,44.92
+11315,2404,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Seat,Toledo,2018,271170,36,0.6,33,0,33
+11316,2405,4,55.00,201,"Cambio de pastillas",45,1,"Cambio de pastillas",1,Frenos,Ford,Puma,2019,100277,32,0.5333,29.33,55.73,85.06
+11317,2406,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Renault,Kadjar,2023,267370,56,0.9333,51.33,40.49,91.82
+11318,2407,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Opel,Crossland,2022,164552,331,5.5167,303.42,388.24,691.66
+11319,2408,4,55.00,202,"Cambio de discos",75,2,"Cambio de discos",1,Frenos,Renault,Megane,2023,101574,69,1.15,63.25,200.74,263.99
+11320,2409,4,55.00,232,"Reparación de centralitas y módulos",210,32,"Reparación de centralitas y módulos",5,"Sistema eléctrico",Volkswagen,T-Roc,2014,154041,265,4.4167,242.92,449.37,692.29
+11321,2409,4,55.00,209,"Cambio de bujías",45,9,"Cambio de bujías",2,Motor,Volkswagen,T-Roc,2014,154041,31,0.5167,28.42,35.96,64.38
+11322,2410,4,55.00,248,"Montaje / equilibrado",37,48,"Montaje / equilibrado",9,"Neumáticos / ruedas",Fiat,Tipo,2008,75058,40,0.6667,36.67,7.77,44.44
+11323,2410,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Fiat,Tipo,2008,75058,102,1.7,93.5,110.58,204.08
+11324,2411,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Seat,Ibiza,2012,98876,304,5.0667,278.67,341.62,620.29
+11325,2412,4,55.00,201,"Cambio de pastillas",45,1,"Cambio de pastillas",1,Frenos,Hyundai,i30,2015,100669,52,0.8667,47.67,51.9,99.57
+11326,2413,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Hyundai,i30,2015,100669,108,1.8,99,374.64,473.64
+11327,2414,4,55.00,238,"Cambio de silencioso / tramo de escape",90,38,"Cambio de silencioso / tramo de escape",7,Escape,Ford,Puma,2019,100277,108,1.8,99,109.86,208.86
+11328,2415,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Kia,Ceed,2024,119286,27,0.45,24.75,24.25,49
+11329,2416,4,55.00,263,"Cambio de limpiaparabrisas",15,63,"Cambio de limpiaparabrisas",12,"Mantenimiento general / Otros",Ford,Fiesta,2008,189879,9,0.15,8.25,23.72,31.97
+11330,2417,4,55.00,222,"Sustitución de muelles / ballestas",135,22,"Sustitución de muelles / ballestas",4,"Suspensión / Dirección",Kia,Ceed,2024,119286,194,3.2333,177.83,106.94,284.77
+11331,2418,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Opel,Astra,2022,16701,315,5.25,288.75,356.02,644.77
+11332,2419,4,55.00,237,"Comprobación de fugas y presión",45,37,"Comprobación de fugas y presión",6,"Aire acondicionado / climatización",Nissan,Micra,2009,134484,34,0.5667,31.17,0,31.17
+11333,2419,4,55.00,225,"Alineación de ruedas / geometría",45,25,"Alineación de ruedas / geometría",4,"Suspensión / Dirección",Nissan,Micra,2009,134484,36,0.6,33,0,33
+11334,2420,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Nissan,Note,2021,224400,55,0.9167,50.42,0,50.42
+11335,2421,4,55.00,257,"Sustitución de bomba de agua",150,57,"Sustitución de bomba de agua",11,"Sistema de refrigeración",Kia,Ceed,2024,271131,177,2.95,162.25,94.86,257.11
+11336,2421,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Kia,Ceed,2024,271131,113,1.8833,103.58,90.52,194.1
+11337,2421,4,55.00,212,"Reparación de culata / juntas",600,12,"Reparación de culata / juntas",2,Motor,Kia,Ceed,2024,271131,723,12.05,662.75,171.95,834.7
+11338,2422,4,55.00,265,"Lavado interior / exterior",45,65,"Lavado interior / exterior",12,"Mantenimiento general / Otros",Seat,Toledo,2018,271170,49,0.8167,44.92,0,44.92
+11339,2423,4,55.00,229,"Sustitución de luces",30,29,"Sustitución de luces",5,"Sistema eléctrico",Ford,Fiesta,2008,189879,30,0.5,27.5,33.84,61.34
+11340,2424,4,55.00,266,Diagnóstico,60,66,Diagnóstico,12,"Mantenimiento general / Otros",Renault,Kadjar,2023,267370,69,1.15,63.25,0,63.25
+11341,2425,4,55.00,240,"Sustitución de sondas lambda",45,40,"Sustitución de sondas lambda",7,Escape,Renault,Megane,2023,101574,40,0.6667,36.67,100.18,136.85
+11342,2425,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Renault,Megane,2023,101574,76,1.2667,69.67,53.86,123.53
+11343,2426,4,55.00,219,"Reparación de diferencial",300,19,"Reparación de diferencial",3,"Transmisión / Embrague",Seat,Ibiza,2012,98876,337,5.6167,308.92,101.44,410.36
+11344,2427,4,55.00,239,"Sustitución de catalizador",120,39,"Sustitución de catalizador",7,Escape,Seat,Ateca,2010,139782,111,1.85,101.75,395.24,496.99
+11345,2427,4,55.00,237,"Comprobación de fugas y presión",45,37,"Comprobación de fugas y presión",6,"Aire acondicionado / climatización",Seat,Ateca,2010,139782,45,0.75,41.25,0,41.25
+11346,2428,4,55.00,259,"Cambio de líquido refrigerante",35,59,"Cambio de líquido refrigerante",11,"Sistema de refrigeración",Opel,Crossland,2022,164552,27,0.45,24.75,25.5,50.25
+11347,2429,4,55.00,223,"Cambio de brazos / bieletas",90,23,"Cambio de brazos / bieletas",4,"Suspensión / Dirección",Volkswagen,Golf,2020,65707,65,1.0833,59.58,81.58,141.16
+11348,2430,4,55.00,231,"Sustitución de fusibles y relés",22,31,"Sustitución de fusibles y relés",5,"Sistema eléctrico",Volkswagen,Passat,2008,135646,27,0.45,24.75,6.09,30.84
+11349,2431,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Seat,Ibiza,2012,98876,187,3.1167,171.42,416.34,587.76
+11350,2432,4,55.00,264,"Comprobación de niveles y líquidos",22,64,"Comprobación de niveles y líquidos",12,"Mantenimiento general / Otros",Seat,Ateca,2010,139782,23,0.3833,21.08,18.69,39.77
+11351,2433,4,55.00,234,"Sustitución de compresor",240,34,"Sustitución de compresor",6,"Aire acondicionado / climatización",Peugeot,208,2015,56291,310,5.1667,284.17,339.08,623.25
+11352,2433,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Peugeot,208,2015,56291,37,0.6167,33.92,11.35,45.27
+11353,2433,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Peugeot,208,2015,56291,116,1.9333,106.33,54.04,160.37
+11354,2434,4,55.00,208,"Sustitución de correas (distribución, accesorios)",240,8,"Sustitución de correas (distribución, accesorios)",2,Motor,Ford,Puma,2019,100277,166,2.7667,152.17,284.77,436.94
+11355,2434,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Ford,Puma,2019,100277,333,5.55,305.25,711.39,1016.64
+11356,2434,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Ford,Puma,2019,100277,125,2.0833,114.58,113.71,228.29
+11357,2435,4,55.00,224,"Sustitución de rótulas",90,24,"Sustitución de rótulas",4,"Suspensión / Dirección",Fiat,Tipo,2008,75058,101,1.6833,92.58,52.28,144.86
+11358,2435,4,55.00,206,"Comprobación y ajuste de frenos de mano",30,6,"Comprobación y ajuste de frenos de mano",1,Frenos,Fiat,Tipo,2008,75058,36,0.6,33,21.47,54.47
+11359,2435,4,55.00,241,"Reparación de tubos y soportes",90,41,"Reparación de tubos y soportes",7,Escape,Fiat,Tipo,2008,75058,115,1.9167,105.42,56.92,162.34
+11360,2436,4,55.00,231,"Sustitución de fusibles y relés",22,31,"Sustitución de fusibles y relés",5,"Sistema eléctrico",Ford,Fiesta,2008,189879,29,0.4833,26.58,5.86,32.44
+11361,2436,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Ford,Fiesta,2008,189879,109,1.8167,99.92,119.17,219.09
+11362,2436,4,55.00,264,"Comprobación de niveles y líquidos",22,64,"Comprobación de niveles y líquidos",12,"Mantenimiento general / Otros",Ford,Fiesta,2008,189879,19,0.3167,17.42,17.83,35.25
+11363,2437,4,55.00,244,"Pintura parcial / completa",480,44,"Pintura parcial / completa",8,"Carrocería / pintura",Volkswagen,T-Roc,2014,154041,574,9.5667,526.17,162.25,688.42
+11364,2438,4,55.00,228,"Reparación alternador / motor de arranque",135,28,"Reparación alternador / motor de arranque",5,"Sistema eléctrico",Peugeot,3008,2009,135087,167,2.7833,153.08,271.8,424.88
+11365,2438,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Peugeot,3008,2009,135087,127,2.1167,116.42,134.79,251.21
+11366,2439,4,55.00,255,"Reparación depósito y conductos",180,55,"Reparación depósito y conductos",10,"Sistema de combustible",Kia,Ceed,2024,271131,234,3.9,214.5,95.94,310.44
+11367,2440,4,55.00,220,"Reparación de palieres y homocinéticas",120,20,"Reparación de palieres y homocinéticas",3,"Transmisión / Embrague",Renault,Kadjar,2023,267370,122,2.0333,111.83,131.1,242.93
+11368,2441,4,55.00,246,"Sustitución de lunas",90,46,"Sustitución de lunas",8,"Carrocería / pintura",Renault,Megane,2017,129137,61,1.0167,55.92,208.4,264.32
+11369,2441,4,55.00,260,"Reparación manguitos y abrazaderas",90,60,"Reparación manguitos y abrazaderas",11,"Sistema de refrigeración",Renault,Megane,2017,129137,81,1.35,74.25,86.02,160.27
+11370,2441,4,55.00,205,"Cambio de zapatas / tambores",75,5,"Cambio de zapatas / tambores",1,Frenos,Renault,Megane,2017,129137,79,1.3167,72.42,64.51,136.93
+11371,2442,4,55.00,243,"Sustitución de puertas, paragolpes, capó",270,43,"Sustitución de puertas, paragolpes, capó",8,"Carrocería / pintura",Hyundai,i20,2021,180868,286,4.7667,262.17,446.16,708.33
+11372,2442,4,55.00,233,"Recarga gas A/C",45,33,"Recarga gas A/C",6,"Aire acondicionado / climatización",Hyundai,i20,2021,180868,54,0.9,49.5,48.08,97.58
+11373,2443,4,55.00,249,"Reparación de pinchazos",30,49,"Reparación de pinchazos",9,"Neumáticos / ruedas",Ford,Focus,2022,173606,43,0.7167,39.42,8.84,48.26
+11374,2444,4,55.00,218,"Cambio de aceite de caja automática",90,18,"Cambio de aceite de caja automática",3,"Transmisión / Embrague",Volkswagen,Golf,2020,65707,76,1.2667,69.67,105.27,174.94
+11375,2444,4,55.00,253,"Limpieza o cambio de inyectores",90,53,"Limpieza o cambio de inyectores",10,"Sistema de combustible",Volkswagen,Golf,2020,65707,74,1.2333,67.83,160.75,228.58
+11376,2445,4,55.00,215,"Cambio de embrague",300,15,"Cambio de embrague",3,"Transmisión / Embrague",Audi,A3,2020,84357,240,4,220,398.9,618.9
+11377,2445,4,55.00,216,"Sustitución de volante bimasa",420,16,"Sustitución de volante bimasa",3,"Transmisión / Embrague",Audi,A3,2020,84357,360,6,330,689.62,1019.62

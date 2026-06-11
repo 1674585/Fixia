@@ -70,9 +70,13 @@ $es_supervisor = in_array($_SESSION['rol'] ?? '', ['ceo', 'jefe']);
             }
         ?>
             <?php
-                // Supervisor ve las tarjetas como tarjetas informativas (sin link a edición)
-                $abrir_tag  = $es_supervisor ? 'div' : 'a';
-                $href_attr  = $es_supervisor ? '' : 'href="index.php?action=detallesTarea&tarea_id=' . (int)$tarea['id'] . '&orden_id=' . (int)$orden_id . '"';
+                // El supervisor ve las tareas AJENAS como tarjetas informativas
+                // (sin link), pero SÍ puede abrir las tareas asignadas a sí mismo
+                // (p. ej. un jefe que se asigna trabajo y quiere hacer la reparación).
+                $tarea_es_mia = (int)($tarea['mecanico_id'] ?? 0) === (int)($_SESSION['user_id'] ?? 0);
+                $puede_abrir  = !$es_supervisor || $tarea_es_mia;
+                $abrir_tag  = $puede_abrir ? 'a' : 'div';
+                $href_attr  = $puede_abrir ? 'href="index.php?action=detallesTarea&tarea_id=' . (int)$tarea['id'] . '&orden_id=' . (int)$orden_id . '"' : '';
             ?>
             <<?= $abrir_tag ?> <?= $href_attr ?>
                class="tarea-card estado-card-<?= $tarea['estado'] ?>">
@@ -125,7 +129,7 @@ $es_supervisor = in_array($_SESSION['rol'] ?? '', ['ceo', 'jefe']);
                     <span class="badge-tarea-estado <?= $est['clase'] ?>">
                         <?= $est['label'] ?>
                     </span>
-                    <?php if (!$es_supervisor): ?>
+                    <?php if ($puede_abrir): ?>
                         <span class="tarea-flecha">Abrir</span>
                     <?php endif; ?>
                 </div>

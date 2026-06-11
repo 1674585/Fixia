@@ -110,6 +110,7 @@
 
         $sql = "SELECT
                     ta.id,
+                    ta.mecanico_id,
                     ta.estado,
                     ta.hora_inicio,
                     ta.hora_fin,
