@@ -31,18 +31,22 @@
 
     <div id="tareas-container">
         <div class="tarea">
-            <label>Tipo de Reparación:</label>
-            <select name="tareas[0][tipo]" class="tipo">
-                <option value="">-- Seleccionar --</option>
-                <?php foreach ($tipos as $tipo): ?>
-                    <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
-                <?php endforeach; ?>
-            </select>
+            <div class="campo-tarea">
+                <label>Tipo de Reparación:</label>
+                <select name="tareas[0][tipo]" class="tipo">
+                    <option value="">-- Seleccionar --</option>
+                    <?php foreach ($tipos as $tipo): ?>
+                        <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <label>Subgrupo:</label>
-            <select name="tareas[0][subgrupo]" class="subgrupo" disabled>
-                <option value="">-- Seleccionar Tipo Primero --</option>
-            </select>
+            <div class="campo-tarea">
+                <label>Subgrupo:</label>
+                <select name="tareas[0][subgrupo]" class="subgrupo" disabled>
+                    <option value="">-- Seleccionar Tipo Primero --</option>
+                </select>
+            </div>
 
             <button type="button" class="btn-predecir">Predecir</button>
             <span class="prediccion-resultado"></span>
@@ -68,18 +72,22 @@ document.getElementById('add-tarea').addEventListener('click', () => {
 
     div.innerHTML = `
         <hr>
-        <label>Tipo de Reparación:</label>
-        <select name="tareas[${index}][tipo]" class="tipo">
-            <option value="">-- Seleccionar --</option>
-            <?php foreach ($tipos as $tipo): ?>
-                <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
-            <?php endforeach; ?>
-        </select>
+        <div class="campo-tarea">
+            <label>Tipo de Reparación:</label>
+            <select name="tareas[${index}][tipo]" class="tipo">
+                <option value="">-- Seleccionar --</option>
+                <?php foreach ($tipos as $tipo): ?>
+                    <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
 
-        <label>Subgrupo:</label>
-        <select name="tareas[${index}][subgrupo]" class="subgrupo" disabled>
-            <option value="">-- Seleccionar Tipo Primero --</option>
-        </select>
+        <div class="campo-tarea">
+            <label>Subgrupo:</label>
+            <select name="tareas[${index}][subgrupo]" class="subgrupo" disabled>
+                <option value="">-- Seleccionar Tipo Primero --</option>
+            </select>
+        </div>
 
         <button type="button" class="btn-predecir">Predecir</button>
         <span class="prediccion-resultado"></span>
@@ -95,7 +103,7 @@ document.getElementById('add-tarea').addEventListener('click', () => {
 document.addEventListener('change', function(e) {
     if (e.target.classList.contains('tipo')) {
         const tipoId = e.target.value;
-        const subSelect = e.target.parentElement.querySelector('.subgrupo');
+        const subSelect = e.target.closest('.tarea').querySelector('.subgrupo');
 
         if (!tipoId) {
             subSelect.innerHTML = '<option>-- Seleccionar Tipo Primero --</option>';

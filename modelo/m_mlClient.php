@@ -16,7 +16,7 @@
         define('ML_API_URL', getenv('ML_API_URL') ?: 'http://127.0.0.1:8001');
     }
     if (!defined('ML_API_KEY')) {
-        define('ML_API_KEY', getenv('ML_API_KEY') ?: 'fixia-ml-dev-key-change-me');
+        define('ML_API_KEY', getenv('ML_API_KEY') ?: 'fixia-ml-dev-key-change-me2');
     }
     if (!defined('ML_API_TIMEOUT')) {
         define('ML_API_TIMEOUT', (int)(getenv('ML_API_TIMEOUT') ?: 30));

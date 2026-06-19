@@ -1346,8 +1346,15 @@ form .tarea {
     align-items: end;
 }
 form .tarea > hr { grid-column: 1 / -1; margin: 0 0 var(--sp-3); }
+
+/* Cada campo (etiqueta encima de su desplegable) */
+.campo-tarea {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    min-width: 0;
+}
 form .tarea label {
-    grid-column: span 1;
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--color-text-muted);
@@ -1355,6 +1362,7 @@ form .tarea label {
     letter-spacing: 0.04em;
 }
 form .tarea select {
+    width: 100%;
     padding: 0.55rem 0.8rem;
     background: var(--color-bg);
     border: 1.5px solid var(--color-border);

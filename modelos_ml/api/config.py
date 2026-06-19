@@ -43,7 +43,7 @@ class Settings:
 
     # ── Seguridad ────────────────────────────────────────────────────
     # Clave compartida con el backend PHP. Cambiar en producción.
-    API_KEY: str = os.getenv("ML_API_KEY", "fixia-ml-dev-key-change-me")
+    API_KEY: str = os.getenv("ML_API_KEY", "fixia-ml-dev-key-change-me2")
     API_KEY_HEADER: str = "X-API-Key"
 
 
